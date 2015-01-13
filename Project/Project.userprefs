@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameCore/UISystem.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameCore/UISystem.cs" Line="84" Column="3" />
+      <File FileName="../../../gitcode/Assets/Scripts/UI/UIHandler.cs" Line="488" Column="3" />
+      <File FileName="Assets/Scripts/GameCore/ResourceSystem.cs" Line="27" Column="18" />
+      <File FileName="../../../../Downloads/ResourceSystem.cs" Line="316" Column="38" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
