@@ -12,11 +12,47 @@ public enum PagePositions{
 	OutOfCamera
 }
 
+public class PageObjectRef{
+	int _index;
+	string _pageName;
+	GameObject m_objPage;
+
+	public PageObjectRef(int index, string name, GameObject obj){
+		this._index = index;
+		this._pageName = name;
+		this.m_objPage = obj;
+	}
+
+	public int Index{
+		get{
+			return _index;
+		}
+		set{
+			_index=value;
+		}
+	}
+
+	public string Name{
+		get{
+			return _pageName;
+		}
+		set{
+			_pageName=value;
+		}
+	}
+
+	public GameObject Page{
+		get{
+			return m_objPage;
+		}
+	}
+}
+
 public class UISystem: MonoBehaviour {
 	private static UISystem _instance;
 
-	public Dictionary<string, GameObject> mPageDict = new Dictionary<string, GameObject>();
-	public List<GameObject> mPageList = new List<GameObject> ();
+	public Dictionary<string, PageObjectRef> mPageDict = new Dictionary<string, PageObjectRef>();
+	public List<PageObjectRef> mPageList = new List<PageObjectRef> ();
 	public string mCurrPageName = "";
 	public string mLastPageName = "";
 
@@ -26,13 +62,22 @@ public class UISystem: MonoBehaviour {
 	private UISystem(){
 	}
 
+	public void Init(){
+		mPageList.Clear ();
+		mPageDict.Clear ();
+
+		GameObject mainPage = GameObject.Find ("MainPageUI").gameObject;
+		PageObjectRef tmpRef = new PageObjectRef (0, "MainPageUI", mainPage);
+		mPageList.Add (tmpRef);
+		mPageDict.Add ("MainPageUI", tmpRef);
+	}
+
 	public static UISystem getInstance(){
 		if (_instance == null) {
-			_instance=new UISystem();		
+			_instance=new UISystem();
 		}
 		return _instance;
 	}
-
 
 	public GameObject MainPanel {
 		get {
@@ -56,6 +101,7 @@ public class UISystem: MonoBehaviour {
 		showPage (pageName, null);
 	}
 	public void showPage(string pageName, ShowPageCallback callback){
+		GameObject targetPage=null;
 		if (isPageLoaded (pageName)) {
 			Debug.LogError ("The Page Is Loaded Already");
 			/*
@@ -67,7 +113,7 @@ public class UISystem: MonoBehaviour {
 			return;	
 		} else {
 			ResourceSystem.getInstance().loadRes(pageName, delegate(Object obj) {
-				GameObject targetPage = obj as GameObject;
+				targetPage = obj as GameObject;
 				targetPage.name = getNameFromPath(pageName);
 				targetPage.transform.parent = MainPanel.transform;
 				targetPage.transform.localPosition = getPageLocation(PagePositions.CommonPage);
@@ -75,9 +121,15 @@ public class UISystem: MonoBehaviour {
 
 				mLastPageName = mCurrPageName;
 				mCurrPageName = pageName;
-				mPageDict.Add(pageName, targetPage);
-				mPageList.Add(targetPage);
+
+				PageObjectRef tmpObj = new PageObjectRef(mPageList.Count, pageName, targetPage);
+				mPageDict.Add(pageName, tmpObj);
+				mPageList.Add(tmpObj);
 			});
+		}
+
+		if (callback != null) {
+			callback(targetPage);		
 		}
 	}
 
@@ -86,7 +138,7 @@ public class UISystem: MonoBehaviour {
 	}
 
 	public void showLastPage(){
-		GameObject lastPage = mPageDict [mLastPageName];
+		GameObject lastPage = mPageDict [mLastPageName].Page;
 		lastPage.transform.localPosition = getPageLocation(PagePositions.CommonPage);
 		lastPage.transform.localScale = Vector3.one;
 
@@ -128,5 +180,9 @@ public class UISystem: MonoBehaviour {
 			break;
 		}
 		return v3;
+	}
+
+	private int getStoreddPageIndex(string pageName){
+		return 0;
 	}
 }
