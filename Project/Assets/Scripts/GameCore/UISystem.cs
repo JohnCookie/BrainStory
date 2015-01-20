@@ -53,8 +53,7 @@ public class UISystem: MonoBehaviour {
 
 	public Dictionary<string, PageObjectRef> mPageDict = new Dictionary<string, PageObjectRef>();
 	public List<PageObjectRef> mPageList = new List<PageObjectRef> ();
-	public string mCurrPageName = "";
-	public string mLastPageName = "";
+	string mCurrPageName = "";
 
 	GameObject m_mainPanel;
 	Camera m_mainCamera;
@@ -62,7 +61,7 @@ public class UISystem: MonoBehaviour {
 	private UISystem(){
 	}
 
-	public void Init(){
+	void Init(){
 		mPageList.Clear ();
 		mPageDict.Clear ();
 
@@ -70,11 +69,14 @@ public class UISystem: MonoBehaviour {
 		PageObjectRef tmpRef = new PageObjectRef (0, "MainPageUI", mainPage);
 		mPageList.Add (tmpRef);
 		mPageDict.Add ("MainPageUI", tmpRef);
+
+		Debug.Log ("UI System Inited.");
 	}
 
 	public static UISystem getInstance(){
 		if (_instance == null) {
 			_instance=new UISystem();
+			_instance.Init();
 		}
 		return _instance;
 	}
@@ -104,12 +106,8 @@ public class UISystem: MonoBehaviour {
 		GameObject targetPage=null;
 		if (isPageLoaded (pageName)) {
 			Debug.LogError ("The Page Is Loaded Already");
-			/*
-			GameObject loadedPage = mPageDict[pageName];
-			loadedPage.transform.parent = MainPanel.transform;
-			loadedPage.transform.localPosition = PagePositions.CommonPage;
-			loadedPage.transform.localScale = Vector3.one;
-			*/
+			int indexOfPage = mPageDict[pageName].Index;
+			switchPageToTopByIndex(indexOfPage);
 			return;	
 		} else {
 			ResourceSystem.getInstance().loadRes(pageName, delegate(Object obj) {
@@ -119,30 +117,78 @@ public class UISystem: MonoBehaviour {
 				targetPage.transform.localPosition = getPageLocation(PagePositions.CommonPage);
 				targetPage.transform.localScale = Vector3.one;
 
-				mLastPageName = mCurrPageName;
 				mCurrPageName = pageName;
 
 				PageObjectRef tmpObj = new PageObjectRef(mPageList.Count, pageName, targetPage);
 				mPageDict.Add(pageName, tmpObj);
 				mPageList.Add(tmpObj);
+
+				// hide last page
+				hidePageAtIndex(mPageList.Count-2);
 			});
 		}
 
 		if (callback != null) {
-			callback(targetPage);		
+			callback(targetPage);	
 		}
 	}
 
 	public void showMainPage(){
-
+		// clear all page
+		for (int i=mPageList.Count-1; i>0; i--) {
+			removePageAtIndex(i);
+		}
 	}
 
 	public void showLastPage(){
-		GameObject lastPage = mPageDict [mLastPageName].Page;
-		lastPage.transform.localPosition = getPageLocation(PagePositions.CommonPage);
-		lastPage.transform.localScale = Vector3.one;
+		removePageAtIndex (mPageList.Count - 1);
+	}
 
-		mCurrPageName = lastPage.name;
+	private void removePageAtIndex(int _index){
+		if (_index >= mPageList.Count || _index<0) {
+			Debug.LogWarning("Beyond List Count Index!!!");
+			return;
+		}
+		if (_index == 0) {
+			Debug.LogWarning("Only 1 Page Remaining, can't remove");
+			return;
+		}
+		Destroy (mPageList [_index].Page);
+		string removePageName = mPageList [_index].Name;
+		mPageDict.Remove (removePageName);
+		mPageList.RemoveAt (_index);
+
+		showPageAtIndex (_index - 1);
+	}
+
+	private void showPageAtIndex(int _index){
+		mCurrPageName = mPageList [_index].Name;
+		mPageList [_index].Page.SetActive (true);
+	}
+
+	private void hidePageAtIndex(int _index){
+		mPageList [_index].Page.SetActive (false);
+	}
+
+	private void switchPageToTopByIndex(int _index){
+		PageObjectRef refToSwitch = mPageList [_index];
+
+		for (int i=_index; i<mPageList.Count-2; i++) {
+			PageObjectRef tmpRef = mPageList[i+1];
+			string movedPageName = tmpRef.Name;
+			tmpRef.Index = i;
+			mPageList[i] = tmpRef;
+
+			PageObjectRef tmpRefInDic = mPageDict[movedPageName];
+			tmpRefInDic.Index = i;
+			mPageDict[movedPageName]=tmpRefInDic;
+
+			tmpRef.Page.SetActive(false);
+		}
+
+		refToSwitch.Index = mPageList.Count - 1;
+		mPageList [mPageList.Count - 1] = refToSwitch;
+		mPageList [mPageList.Count - 1].Page.SetActive (true);
 	}
 
 	private bool isPageLoaded(string pageName){
@@ -182,7 +228,7 @@ public class UISystem: MonoBehaviour {
 		return v3;
 	}
 
-	private int getStoreddPageIndex(string pageName){
+	private int getStoredPageIndex(string pageName){
 		return 0;
 	}
 }

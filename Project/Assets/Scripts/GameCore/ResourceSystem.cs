@@ -14,9 +14,15 @@ public class ResourceSystem : MonoBehaviour
 	
 	public static ResourceSystem getInstance(){
 		if (_instance == null) {
-			_instance=new ResourceSystem();		
+			_instance=new ResourceSystem();
+			_instance.Init();
+
 		}
 		return _instance;
+	}
+
+	void Init(){
+		Debug.Log ("Resource System Inited.");
 	}
 
 	public void loadRes(string path, ResourceLoadCallback callback){
