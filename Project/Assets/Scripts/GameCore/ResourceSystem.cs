@@ -14,7 +14,7 @@ public class ResourceSystem : MonoBehaviour
 	
 	public static ResourceSystem getInstance(){
 		if (_instance == null) {
-			_instance=new ResourceSystem();
+			_instance=GameObject.Find ("ResourceSystem").gameObject.GetComponent<ResourceSystem> ();
 			_instance.Init();
 
 		}

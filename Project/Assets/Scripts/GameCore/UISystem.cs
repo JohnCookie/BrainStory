@@ -75,7 +75,7 @@ public class UISystem: MonoBehaviour {
 
 	public static UISystem getInstance(){
 		if (_instance == null) {
-			_instance=new UISystem();
+			_instance=GameObject.Find ("UISystem").gameObject.GetComponent<UISystem>();
 			_instance.Init();
 		}
 		return _instance;
@@ -104,6 +104,7 @@ public class UISystem: MonoBehaviour {
 	}
 	public void showPage(string pageName, ShowPageCallback callback){
 		GameObject targetPage=null;
+		GameObject resRetObj=null;
 		if (isPageLoaded (pageName)) {
 			Debug.LogError ("The Page Is Loaded Already");
 			int indexOfPage = mPageDict[pageName].Index;
@@ -111,7 +112,8 @@ public class UISystem: MonoBehaviour {
 			return;	
 		} else {
 			ResourceSystem.getInstance().loadRes(pageName, delegate(Object obj) {
-				targetPage = obj as GameObject;
+				resRetObj = obj as GameObject;
+				targetPage = (GameObject) Instantiate(resRetObj);
 				targetPage.name = getNameFromPath(pageName);
 				targetPage.transform.parent = MainPanel.transform;
 				targetPage.transform.localPosition = getPageLocation(PagePositions.CommonPage);

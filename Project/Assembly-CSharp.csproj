@@ -179,8 +179,11 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\Scripts\GameCore\GameCore.cs" />
      <Compile Include="Assets\Scripts\GameCore\ResourceSystem.cs" />
      <Compile Include="Assets\Scripts\GameCore\UISystem.cs" />
+     <Compile Include="Assets\Scripts\Pages\MainPageUI.cs" />
+     <Compile Include="Assets\Scripts\Pages\TestPageUI.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.9.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
