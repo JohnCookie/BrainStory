@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public delegate void ShowPageCallback (GameObject page);
+public delegate void DialogCallback(string msg);
 
 public enum PagePositions{
 	MainPage,
@@ -203,6 +204,34 @@ public class UISystem: MonoBehaviour {
 	private string getNameFromPath(string path){
 		string[] strArr = path.Split ('/');
 		return strArr [strArr.Length - 1];
+	}
+
+	public string GetCurrPageName(){
+		return mCurrPageName;
+	}
+
+	public void showCommonDialog(CommonDialogStyle style, string title, string content, DialogCallback callback1, DialogCallback callback2){
+		GameObject targetDialog=null;
+		GameObject resRetObj=null;
+		ResourceSystem.getInstance ().loadRes ("CommonWindows/CommonDialog", delegate(Object obj) {
+			resRetObj = obj as GameObject;
+			targetDialog = (GameObject)Instantiate (resRetObj);
+			targetDialog.name = getNameFromPath ("CommonDialog");
+			targetDialog.transform.parent = MainPanel.transform;
+			targetDialog.transform.localPosition = getPageLocation (PagePositions.CommonDialog);
+			targetDialog.transform.localScale = Vector3.one;
+
+			CommonDialog dialogScript = targetDialog.GetComponent<CommonDialog> ();
+			dialogScript.Init (style, title, content, callback1, callback2);
+		});
+	}
+
+	public void showCommonDialog(CommonDialogStyle style, string title, string content, DialogCallback callback){
+		showCommonDialog (style, title, content, callback, null);
+	}
+
+	public void showCommonDialog(CommonDialogStyle style, string title, string content){
+		showCommonDialog (style, title, content, null, null);
 	}
 
 	private Vector3 getPageLocation(PagePositions type){
