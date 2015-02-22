@@ -1,0 +1,25 @@
+{
+	"player_name":"JohnCookoie",
+	"player_records":[
+		{
+			"id":1,
+			"gold":100,
+			"time":1234
+		},
+		{
+			"id":2,
+			"gold":200,
+			"time":2345
+		},
+		{
+			"id":3,
+			"gold":300,
+			"time":3456
+		}
+	],
+	"player_unlock":{
+		"stage1":"unlocked",
+		"stage2":"unlocked",
+		"stage3":"locked"
+	}
+}

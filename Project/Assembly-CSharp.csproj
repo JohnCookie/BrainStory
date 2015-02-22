@@ -182,7 +182,9 @@
      <Compile Include="Assets\Scripts\CommonWindows\CommonDialog.cs" />
      <Compile Include="Assets\Scripts\GameCore\GameCore.cs" />
      <Compile Include="Assets\Scripts\GameCore\ResourceSystem.cs" />
+     <Compile Include="Assets\Scripts\GameCore\TextUtils.cs" />
      <Compile Include="Assets\Scripts\GameCore\UISystem.cs" />
+     <Compile Include="Assets\Scripts\GameDatas\StaticData.cs" />
      <Compile Include="Assets\Scripts\Pages\MainPageUI.cs" />
      <Compile Include="Assets\Scripts\Pages\TestPageUI.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
@@ -214,6 +216,7 @@
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Refractive.shader" />
+     <None Include="Assets\Resources\Texts\GameData\test_json.txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
@@ -221,6 +224,10 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Coding/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{EB8AA23C-2655-E22B-2EBB-05697394EDB3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
