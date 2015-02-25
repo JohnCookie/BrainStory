@@ -15,6 +15,9 @@ public class CommonDialog : MonoBehaviour
 	UIButton m_btnCenter;
 	UIButton m_btnLeft;
 	UIButton m_btnRight;
+
+	void Awake(){
+	}
 	// Use this for initialization
 	public void Init (CommonDialogStyle style, string title, string content, DialogCallback callback1, DialogCallback callback2)
 	{
