@@ -25,7 +25,14 @@ public class MainPageUI : MonoBehaviour
 
 		public void GoToNextPage(){
 			Debug.Log("click show test page");
-			UISystem.getInstance().showPage("Prefabs/TestPageUI");
+			UISystem.getInstance ().showCommonDialog (CommonDialogStyle.ConfirmCancleStyle, "TITLE", "AAA\n   BBB\n      CCC",
+                (string msgLeft) => {
+						Debug.Log ("Left Dialog Btn");
+				},
+				delegate(string msgRight) {
+						Debug.Log ("Right Dialog Btn");
+				},
+				null);
 		}
 }
 

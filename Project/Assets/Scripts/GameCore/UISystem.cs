@@ -210,10 +210,10 @@ public class UISystem: MonoBehaviour {
 		return mCurrPageName;
 	}
 
-	public void showCommonDialog(CommonDialogStyle style, string title, string content, DialogCallback callback1, DialogCallback callback2){
+	public void showCommonDialog(CommonDialogStyle style, string title, string content, DialogCallback callbackLeft, DialogCallback callbackRight, DialogCallback callbackMiddle){
 		GameObject targetDialog=null;
 		GameObject resRetObj=null;
-		ResourceSystem.getInstance ().loadRes ("CommonWindows/CommonDialog", delegate(Object obj) {
+		ResourceSystem.getInstance ().loadRes ("Prefabs/CommonDialog", delegate(Object obj) {
 			resRetObj = obj as GameObject;
 			targetDialog = (GameObject)Instantiate (resRetObj);
 			targetDialog.name = getNameFromPath ("CommonDialog");
@@ -222,16 +222,8 @@ public class UISystem: MonoBehaviour {
 			targetDialog.transform.localScale = Vector3.one;
 
 			CommonDialog dialogScript = targetDialog.GetComponent<CommonDialog> ();
-			dialogScript.Init (style, title, content, callback1, callback2);
+			dialogScript.Init (style, title, content, callbackLeft, callbackRight, callbackMiddle);
 		});
-	}
-
-	public void showCommonDialog(CommonDialogStyle style, string title, string content, DialogCallback callback){
-		showCommonDialog (style, title, content, callback, null);
-	}
-
-	public void showCommonDialog(CommonDialogStyle style, string title, string content){
-		showCommonDialog (style, title, content, null, null);
 	}
 
 	private Vector3 getPageLocation(PagePositions type){
