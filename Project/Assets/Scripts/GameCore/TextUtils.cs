@@ -10,7 +10,7 @@ public class TextUtils : MonoBehaviour
 	
 	public static TextUtils getInstance(){
 		if (_instance == null) {
-			_instance=GameObject.Find ("TextUtils").gameObject.GetComponent<TextUtils> ();
+			_instance=GameObject.Find ("OtherHelpers").gameObject.GetComponent<TextUtils> ();
 			_instance.Init();
 			
 		}

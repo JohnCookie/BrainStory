@@ -51,14 +51,17 @@ public class CommonDialog : MonoBehaviour
 
 	public void OnLeftBtnClick(){
 		leftCallback (null);
+		Destroy (gameObject);
 	}
 
 	public void OnRightBtnClick(){
 		rightCallback (null);
+		Destroy (gameObject);
 	}
 
 	public void OnMiddleBtnClick(){
 		middleCallback (null);
+		Destroy (gameObject);
 	}
 
 	public void SetTitle(string _title){

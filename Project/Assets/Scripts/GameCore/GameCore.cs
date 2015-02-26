@@ -7,6 +7,7 @@ public class GameCore : MonoBehaviour {
 		UISystem.getInstance ();
 		ResourceSystem.getInstance ();
 		TextUtils.getInstance();
+		TimerHelper.getInstance ();
 	}
 
 }
