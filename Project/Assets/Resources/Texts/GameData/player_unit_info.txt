@@ -1,0 +1,19 @@
+{
+	[
+		{
+			"id": 1,
+			"name": "Base1",
+			"star": 1,
+			"atk": 3,
+			"def": 1,
+			"spd": 2,
+			"int": 2,
+			"agi": 0,
+			"dex": 0,
+			"att_type": 1,
+			"def_type": 1,
+			"hp": 10,
+			"enchant": 1,
+		}
+	]
+}
