@@ -1,19 +1,30 @@
-{
-	[
-		{
-			"id": 1,
-			"name": "Base1",
-			"star": 1,
-			"atk": 3,
-			"def": 1,
-			"spd": 2,
-			"int": 2,
-			"agi": 0,
-			"dex": 0,
-			"att_type": 1,
-			"def_type": 1,
-			"hp": 10,
-			"enchant": 1,
-		}
-	]
-}
+[
+	{
+		"id": 1,
+		"name": "Hero_1_Star",
+		"star": 1,
+		"atk": 3,
+		"def": 1,
+		"spd": 2,
+		"int": 2,
+		"agi": 0,
+		"dex": 0,
+		"att_type": 1,
+		"def_type": 1,
+		"hp": 10
+	},
+	{
+		"id": 2,
+		"name": "Hero_2_Star",
+		"star": 1,
+		"atk": 5,
+		"def": 3,
+		"spd": 3,
+		"int": 2,
+		"agi": 1,
+		"dex": 1,
+		"att_type": 2,
+		"def_type": 2,
+		"hp": 15
+	}
+]

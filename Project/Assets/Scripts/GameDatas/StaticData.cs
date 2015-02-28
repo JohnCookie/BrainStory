@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+#region for test
 public class PlayerRecord
 {
 	public int id { get; set; }
@@ -22,4 +23,4 @@ public class TestJsonData
 	public List<PlayerRecord> player_records { get; set; }
 	public PlayerUnlock player_unlock { get; set; }
 }
-
+#endregion
