@@ -6,10 +6,8 @@ using System.Collections.Generic;
 public enum UnitWeaponType{
 	Sharp,
 	Blunt,
-	ArrowSingle,
-	ArrowMuilt,
-	MagicSingle,
-	MagicMuilt
+	Arrow,
+	Magic
 }
 
 // Base enchant type
