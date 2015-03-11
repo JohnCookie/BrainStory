@@ -1,4 +1,4 @@
-{
+﻿{
 	"player_name":"JohnCookoie",
 	"player_records":[
 		{
