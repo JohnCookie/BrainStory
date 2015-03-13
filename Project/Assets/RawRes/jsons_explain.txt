@@ -1,4 +1,4 @@
-﻿normal_summon_rate_config
+normal_summon_rate_config
 普通召唤概率配置
 程序配置枚举类对应1,2,3,4,5种召唤
 time：耗时，单位秒
@@ -6,3 +6,23 @@ rate：代表区间，roll点1-100
 num：得到的怪物数量
 guarantee：保底怪兽的个数，0表示没保底，先判断该值，如有先roll完保底再普通roll取
 guarantee_rate: 用于保底怪兽的概率
+
+sacrifice_summon_rate_config
+献祭召唤概率配置
+程序根据条件分别对应1（低星召唤），2（调整召唤），3（精英召唤）3种召唤模式
+1 低星召唤
+star_min: 总星数范围最小值
+star_max: 总星数范围最大值
+time: 耗时，单位秒
+rate: roll点区间
+2 调整召唤
+star_4_num: 4星怪数量
+star_5_num: 5星怪数量（以5星数量优先）
+time: 耗时
+rate: roll点区间
+3 精英召唤
+time: 耗时
+rate: roll点区间
+4 天赋继承概率
+键: 相同天赋数量
+值: 继承天赋的概率（100记）

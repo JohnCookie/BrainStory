@@ -50,17 +50,23 @@ public class CommonDialog : MonoBehaviour
 	}
 
 	public void OnLeftBtnClick(){
-		leftCallback (null);
+		if (leftCallback != null) {
+			leftCallback (null);
+		}
 		Destroy (gameObject);
 	}
 
 	public void OnRightBtnClick(){
-		rightCallback (null);
+		if (rightCallback != null) {
+			rightCallback (null);	
+		}
 		Destroy (gameObject);
 	}
 
 	public void OnMiddleBtnClick(){
-		middleCallback (null);
+		if (middleCallback != null) {
+			middleCallback (null);
+		}
 		Destroy (gameObject);
 	}
 

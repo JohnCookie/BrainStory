@@ -180,13 +180,16 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Scripts\CommonWindows\CommonDialog.cs" />
+     <Compile Include="Assets\Scripts\GameCore\GameConfigs.cs" />
      <Compile Include="Assets\Scripts\GameCore\GameCore.cs" />
      <Compile Include="Assets\Scripts\GameCore\ResourceSystem.cs" />
      <Compile Include="Assets\Scripts\GameCore\TextUtils.cs" />
      <Compile Include="Assets\Scripts\GameCore\TimerHelper.cs" />
      <Compile Include="Assets\Scripts\GameCore\UISystem.cs" />
      <Compile Include="Assets\Scripts\GameDatas\StaticData.cs" />
+     <Compile Include="Assets\Scripts\GameDatas\SummonGachaData.cs" />
      <Compile Include="Assets\Scripts\GameDatas\UnitData.cs" />
+     <Compile Include="Assets\Scripts\Pages\GachaSummonPage.cs" />
      <Compile Include="Assets\Scripts\Pages\MainPageUI.cs" />
      <Compile Include="Assets\Scripts\Pages\TestPageUI.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
@@ -209,6 +212,7 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+     <None Include="Assets\Resources\Texts\GameData\normal_summon_rate_config.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
@@ -218,9 +222,11 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
      <None Include="Assets\Resources\Texts\GameData\player_unit_info.txt" />
      <None Include="Assets\RawRes\Font\Fixedsys_bmfont.fnt" />
+     <None Include="Assets\RawRes\jsons_explain.txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Refractive.shader" />
+     <None Include="Assets\Resources\Texts\GameData\sacrifice_summon_rate_config.txt" />
      <None Include="Assets\Resources\Texts\GameData\test_json.txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />

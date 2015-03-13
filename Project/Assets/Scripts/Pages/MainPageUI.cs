@@ -18,18 +18,35 @@ public class MainPageUI : MonoBehaviour
 
 	}
 
+	public void OnEnterSummonPage(){
+		UISystem.getInstance ().showPage ("Prefabs/GachaPageUI");
+	}
+
+	public void OnEnterMonsterPage(){
+		UISystem.getInstance ().showCommonDialog (CommonDialogStyle.OnlyConfirmStyle, "", "This function will be open later.", null, null, null);
+	}
+
+	public void OnEnterTaskPage(){
+		UISystem.getInstance ().showCommonDialog (CommonDialogStyle.OnlyConfirmStyle, "", "This function will be open later.", null, null, null);
+	}
+
+	public void OnEnterAchievementPage(){
+		UISystem.getInstance ().showCommonDialog (CommonDialogStyle.OnlyConfirmStyle, "", "This function will be open later.", null, null, null);
+	}
+
+	#region for test
 	public void OnTestFunction1(){
 		Debug.Log("click show test page");
 		UISystem.getInstance ().showCommonDialog (CommonDialogStyle.ConfirmCancleStyle, "TITLE", "AAA\n   BBB\n      CCC",
-        (string msgLeft) => {
-				Debug.Log ("Left Dialog Btn");
-			},
-			delegate(string msgRight) {
-				Debug.Log ("Right Dialog Btn");
-			},
-			null);
+		                                          (string msgLeft) => {
+			Debug.Log ("Left Dialog Btn");
+		},
+		delegate(string msgRight) {
+			Debug.Log ("Right Dialog Btn");
+		},
+		null);
 	}
-
+	
 	public void OnTestFunction2(){
 		TimerHelper.getInstance ().DelayFunc (2.0f, delegate() {
 			TestJsonLit ();
@@ -44,5 +61,6 @@ public class MainPageUI : MonoBehaviour
 		Debug.Log(tjd.player_records[1].id);
 		Debug.Log(tjd.player_unlock.stage2);
 	}
+	#endregion
 }
 
