@@ -63,23 +63,23 @@ public class MonsterDataUntility{
 	void InitOtherDataStructs(){
 		m_dictIdToMonster.Clear ();
 		m_dictStarToMonsters.Clear ();
-		for (int i=0; i<m_monsterBaseInfoList.monsterBaseList.Count; i++) {
-			m_dictIdToMonster.Add(m_monsterBaseInfoList.monsterBaseList[i].id, m_monsterBaseInfoList.monsterBaseList[i]);
-			switch(m_monsterBaseInfoList.monsterBaseList[i].quality){
+		for (int i=0; i<m_monsterBaseInfoList.data.Count; i++) {
+			m_dictIdToMonster.Add(m_monsterBaseInfoList.data[i].id, m_monsterBaseInfoList.data[i]);
+			switch(m_monsterBaseInfoList.data[i].quality){
 			case 1:
-				m_listOneStarMonsters.Add(m_monsterBaseInfoList.monsterBaseList[i]);
+				m_listOneStarMonsters.Add(m_monsterBaseInfoList.data[i]);
 				break;
 			case 2:
-				m_listTwoStarMonsters.Add(m_monsterBaseInfoList.monsterBaseList[i]);
+				m_listTwoStarMonsters.Add(m_monsterBaseInfoList.data[i]);
 				break;
 			case 3:
-				m_listThreeStarMonsters.Add(m_monsterBaseInfoList.monsterBaseList[i]);
+				m_listThreeStarMonsters.Add(m_monsterBaseInfoList.data[i]);
 				break;
 			case 4:
-				m_listFourStarMonsters.Add(m_monsterBaseInfoList.monsterBaseList[i]);
+				m_listFourStarMonsters.Add(m_monsterBaseInfoList.data[i]);
 				break;
 			case 5:
-				m_listFiveStarMonsters.Add(m_monsterBaseInfoList.monsterBaseList[i]);
+				m_listFiveStarMonsters.Add(m_monsterBaseInfoList.data[i]);
 				break;
 			default:
 				break;

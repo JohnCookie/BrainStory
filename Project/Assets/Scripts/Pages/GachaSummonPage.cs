@@ -110,6 +110,7 @@ public class GachaSummonPage : MonoBehaviour
 			gachas += m_summonResult[i].ToString()+" ";
 		}
 		Debug.Log ("GachaResult: " + gachas);
+		ShowSummonResult(m_summonResult);
 	}
 	public void On30MinSummon(){
 		Debug.Log ("Summon 30 Min");
@@ -119,6 +120,7 @@ public class GachaSummonPage : MonoBehaviour
 			gachas += m_summonResult[i].ToString()+" ";
 		}
 		Debug.Log ("GachaResult: " + gachas);
+		ShowSummonResult(m_summonResult);
 	}
 	public void On2HourSummon(){
 		Debug.Log ("Summon 2 Hour");
@@ -128,6 +130,7 @@ public class GachaSummonPage : MonoBehaviour
 			gachas += m_summonResult[i].ToString()+" ";
 		}
 		Debug.Log ("GachaResult: " + gachas);
+		ShowSummonResult(m_summonResult);
 	}
 	public void On6HourSummon(){
 		Debug.Log ("Summon 6 Hour");
@@ -137,6 +140,7 @@ public class GachaSummonPage : MonoBehaviour
 			gachas += m_summonResult[i].ToString()+" ";
 		}
 		Debug.Log ("GachaResult: " + gachas);
+		ShowSummonResult(m_summonResult);
 	}
 	public void On12HourSummon(){
 		Debug.Log ("Summon 12 Hour");
@@ -146,6 +150,7 @@ public class GachaSummonPage : MonoBehaviour
 			gachas += m_summonResult[i].ToString()+" ";
 		}
 		Debug.Log ("GachaResult: " + gachas);
+		ShowSummonResult(m_summonResult);
 	}
 
 	public void OnSelectSacrificeSlot1(){
@@ -223,6 +228,13 @@ public class GachaSummonPage : MonoBehaviour
 			m_btnShowNormal.enabled=true;
 			currPageStatus = SummonPageShowingStatus.RootChoice;
 		}
+	}
+
+	void ShowSummonResult(List<int> summonResult){
+		UISystem.getInstance().showPage("Prefabs/SummonResultPage", (page)=>{
+			SummonResultPage pageScript = page.GetComponent<SummonResultPage>();
+			pageScript.Init(summonResult);
+		});
 	}
 }
 

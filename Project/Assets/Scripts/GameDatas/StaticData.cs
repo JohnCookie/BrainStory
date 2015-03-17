@@ -27,7 +27,7 @@ public class TestJsonData
 
 #region monster_base
 public class MonsterBaseList{
-	public List<MonsterBase> monsterBaseList { get; set; }
+	public List<MonsterBase> data { get; set; }
 }
 
 public class MonsterBase

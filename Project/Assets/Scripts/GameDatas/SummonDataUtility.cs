@@ -90,6 +90,7 @@ public class SummonDataUtility{
 			Debug.Log("random error, random num="+randomNum+" quality <= 0 or >=6");
 			finalQuality = 1;
 		}
+		Debug.Log("roll: "+randomNum);
 		return finalQuality;
 	}
 
