@@ -24,3 +24,33 @@ public class TestJsonData
 	public PlayerUnlock player_unlock { get; set; }
 }
 #endregion
+
+#region monster_base
+public class MonsterBaseList{
+	public List<MonsterBase> monsterBaseList { get; set; }
+}
+
+public class MonsterBase
+{
+	public int id { get; set; }
+	public string name { get; set; }
+	public int icon { get; set; }
+	public int quality { get; set; }
+	public int atk { get; set; }
+	public int def { get; set; }
+	public double spd { get; set; }
+	public int intel { get; set; }
+	public int agi { get; set; }
+	public int dex { get; set; }
+	public int hp { get; set; }
+	public int atk_type { get; set; }
+	public int def_type { get; set; }
+	public int atk_add { get; set; }
+	public double def_add { get; set; }
+	public double spd_add { get; set; }
+	public double int_add { get; set; }
+	public double agi_add { get; set; }
+	public double dex_add { get; set; }
+	public int hp_add { get; set; }
+}
+#endregion

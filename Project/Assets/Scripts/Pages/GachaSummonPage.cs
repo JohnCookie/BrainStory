@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GachaSummonPage : MonoBehaviour
 {
@@ -103,18 +104,48 @@ public class GachaSummonPage : MonoBehaviour
 
 	public void On10MinSummon(){
 		Debug.Log("Summon 10 Min");
+		List<int> m_summonResult = SummonDataUtility.getInstance ().getNormalCard (NormalSummonType.NORMAL_SUMMON_10_MIN);
+		string gachas = "";
+		for (int i=0; i<m_summonResult.Count; i++) {
+			gachas += m_summonResult[i].ToString()+" ";
+		}
+		Debug.Log ("GachaResult: " + gachas);
 	}
 	public void On30MinSummon(){
 		Debug.Log ("Summon 30 Min");
+		List<int> m_summonResult = SummonDataUtility.getInstance ().getNormalCard (NormalSummonType.NORMAL_SUMMON_30_MIN);
+		string gachas = "";
+		for (int i=0; i<m_summonResult.Count; i++) {
+			gachas += m_summonResult[i].ToString()+" ";
+		}
+		Debug.Log ("GachaResult: " + gachas);
 	}
 	public void On2HourSummon(){
 		Debug.Log ("Summon 2 Hour");
+		List<int> m_summonResult = SummonDataUtility.getInstance ().getNormalCard (NormalSummonType.NORMAL_SUMMON_2_HOUR);
+		string gachas = "";
+		for (int i=0; i<m_summonResult.Count; i++) {
+			gachas += m_summonResult[i].ToString()+" ";
+		}
+		Debug.Log ("GachaResult: " + gachas);
 	}
 	public void On6HourSummon(){
 		Debug.Log ("Summon 6 Hour");
+		List<int> m_summonResult = SummonDataUtility.getInstance ().getNormalCard (NormalSummonType.NORMAL_SUMMON_6_HOUR);
+		string gachas = "";
+		for (int i=0; i<m_summonResult.Count; i++) {
+			gachas += m_summonResult[i].ToString()+" ";
+		}
+		Debug.Log ("GachaResult: " + gachas);
 	}
 	public void On12HourSummon(){
 		Debug.Log ("Summon 12 Hour");
+		List<int> m_summonResult = SummonDataUtility.getInstance ().getNormalCard (NormalSummonType.NORMAL_SUMMON_12_HOUR);
+		string gachas = "";
+		for (int i=0; i<m_summonResult.Count; i++) {
+			gachas += m_summonResult[i].ToString()+" ";
+		}
+		Debug.Log ("GachaResult: " + gachas);
 	}
 
 	public void OnSelectSacrificeSlot1(){
