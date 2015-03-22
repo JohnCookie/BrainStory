@@ -170,7 +170,9 @@ public class UISystem: MonoBehaviour {
 	}
 
 	private void hidePageAtIndex(int _index){
-		mPageList [_index].Page.SetActive (false);
+		if(mPageList[_index].Page.name != "MainPageUI"){
+			mPageList [_index].Page.SetActive (false);
+		}
 	}
 
 	private void switchPageToTopByIndex(int _index){

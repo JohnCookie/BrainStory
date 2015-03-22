@@ -178,14 +178,14 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Coding/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>D:/Coding/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ <Reference Include="DOTween">
+ <HintPath>D:/Coding/GitCodes/BrainStory/Project/Assets/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
  <HintPath>D:/Coding/GitCodes/BrainStory/Project/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
- <Reference Include="DOTween">
- <HintPath>D:/Coding/GitCodes/BrainStory/Project/Assets/DOTween/DOTween.dll</HintPath>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>D:/Coding/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

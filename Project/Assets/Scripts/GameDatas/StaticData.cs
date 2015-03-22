@@ -54,3 +54,14 @@ public class MonsterBase
 	public int hp_add { get; set; }
 }
 #endregion
+
+#region UserData monster
+public class UserMonster
+{
+	public long id {get; set;}
+	public int monster_id {get; set;}
+	public int exp {get; set;}
+	public List<int> skills {get; set;}
+	public List<int> talents {get; set;}
+}
+#endregion

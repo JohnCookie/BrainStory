@@ -48,9 +48,15 @@ public class MainPageUI : MonoBehaviour
 	}
 	
 	public void OnTestFunction2(){
+		/*
 		TimerHelper.getInstance ().DelayFunc (2.0f, delegate() {
 			TestJsonLit ();
 		});
+		*/
+		UserMonster monster_1 = JsonMapper.ToObject<UserMonster>(UserDataGenerater.GetInstance().UserMonsterData[0].ToString());
+		long id = monster_1.id;
+		Debug.Log(id);
+		UserDataGenerater.GetInstance().DelMonsterByUID(id);
 	}
 
 	void TestJsonLit(){

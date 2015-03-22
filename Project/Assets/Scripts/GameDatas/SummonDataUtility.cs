@@ -58,6 +58,8 @@ public class SummonDataUtility{
 			int qualityResult = getQualityFromRate (guaranteeRate);
 			MonsterBase oneMonster = getRandomMonsterByQuality (qualityResult);
 			resultList.Add (oneMonster.id);
+
+			UserDataGenerater.GetInstance().AddNewMonsterById(oneMonster.id);
 		}
 		int leftMonsterNum = int.Parse (_info ["num"].ToString ()) - int.Parse (_info ["guarantee"].ToString ());
 		for (int j=0; j<leftMonsterNum; j++) {
@@ -66,6 +68,8 @@ public class SummonDataUtility{
 			int qualityResult = getQualityFromRate (baseRate);
 			MonsterBase oneMonster = getRandomMonsterByQuality (qualityResult);
 			resultList.Add (oneMonster.id);
+
+			UserDataGenerater.GetInstance().AddNewMonsterById(oneMonster.id);
 		}
 		return resultList;
 	}
