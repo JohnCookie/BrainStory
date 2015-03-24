@@ -45,6 +45,8 @@ public class MainPageUI : MonoBehaviour
 			Debug.Log ("Right Dialog Btn");
 		},
 		null);
+		
+		UserDataGenerater.GetInstance().printCurrMonsters();
 	}
 	
 	public void OnTestFunction2(){
@@ -53,7 +55,7 @@ public class MainPageUI : MonoBehaviour
 			TestJsonLit ();
 		});
 		*/
-		UserMonster monster_1 = JsonMapper.ToObject<UserMonster>(UserDataGenerater.GetInstance().UserMonsterData[0].ToString());
+		UserMonster monster_1 = UserDataGenerater.GetInstance().UserMonsterDataList[0];
 		long id = monster_1.id;
 		Debug.Log(id);
 		UserDataGenerater.GetInstance().DelMonsterByUID(id);
