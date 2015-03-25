@@ -23,7 +23,7 @@ public class MainPageUI : MonoBehaviour
 	}
 
 	public void OnEnterMonsterPage(){
-		UISystem.getInstance ().showCommonDialog (CommonDialogStyle.OnlyConfirmStyle, "", "This function will be open later.", null, null, null);
+		UISystem.getInstance ().showPage ("Prefabs/UserMonsterBoxPageUI");
 	}
 
 	public void OnEnterTaskPage(){
