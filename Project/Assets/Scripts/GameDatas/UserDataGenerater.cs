@@ -34,6 +34,12 @@ public class UserDataGenerater
 		}
 	}
 
+	public Dictionary<long, UserMonster> UserMonsterDataDictionary{
+		get{
+			return m_dictUserMonsters;
+		}
+	}
+
 	void parseMonsterListFromJson(){
 		// unknown error
 		m_userMonsterData.Add (JsonMapper.ToJson(new UserMonster ()));

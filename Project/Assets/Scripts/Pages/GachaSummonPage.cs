@@ -32,6 +32,7 @@ public class GachaSummonPage : MonoBehaviour
 	GameObject m_objSlotShower_4;
 	GameObject m_objSlotShower_5;
 	UIButton m_btnSacrificeBtn;
+	GameObject[] m_objSlotShowerArr = new GameObject[5];
 
 	// rightPart
 	UIButton m_btn10Min;
@@ -49,6 +50,9 @@ public class GachaSummonPage : MonoBehaviour
 		SacrificeShowing
 	}
 	SummonPageShowingStatus currPageStatus = SummonPageShowingStatus.RootChoice;
+
+	List<long> selectedMonsterList=new List<long>();
+	Dictionary<int, long> selectedSlotMonsterDict=new Dictionary<int, long>();
 
 	void Awake()
 	{
@@ -72,10 +76,16 @@ public class GachaSummonPage : MonoBehaviour
 		m_btnSacrificeSlot_5 = m_objLeftSacrificePart.transform.FindChild("SacrificePart").FindChild("Addit_5_Btn").GetComponent<UIButton>();
 
 		m_objSlotShower_1 = m_objLeftSacrificePart.transform.FindChild("SacrificePart").FindChild("Addit1_withMonster").gameObject;
+		m_objSlotShowerArr [0] = m_objSlotShower_1;
 		m_objSlotShower_2 = m_objLeftSacrificePart.transform.FindChild("SacrificePart").FindChild("Addit2_withMonster").gameObject;
+		m_objSlotShowerArr [1] = m_objSlotShower_2;
 		m_objSlotShower_3 = m_objLeftSacrificePart.transform.FindChild("SacrificePart").FindChild("Addit3_withMonster").gameObject;
+		m_objSlotShowerArr [2] = m_objSlotShower_3;
 		m_objSlotShower_4 = m_objLeftSacrificePart.transform.FindChild("SacrificePart").FindChild("Addit4_withMonster").gameObject;
+		m_objSlotShowerArr [3] = m_objSlotShower_4;
 		m_objSlotShower_5 = m_objLeftSacrificePart.transform.FindChild("SacrificePart").FindChild("Addit5_withMonster").gameObject;
+		m_objSlotShowerArr [4] = m_objSlotShower_5;
+
 
 		m_btnSacrificeBtn = m_objLeftSacrificePart.transform.FindChild("SacrificePart").FindChild("ConfirmBtn").GetComponent<UIButton>();
 
@@ -94,6 +104,8 @@ public class GachaSummonPage : MonoBehaviour
 		m_objLeftSacrificePart.SetActive(false);
 		m_objRightNormalPart.SetActive(false);
 		currPageStatus = SummonPageShowingStatus.RootChoice;
+		selectedMonsterList.Clear ();
+		selectedSlotMonsterDict.Clear ();
 	}
 
 	// Update is called once per frame
@@ -154,19 +166,19 @@ public class GachaSummonPage : MonoBehaviour
 	}
 
 	public void OnSelectSacrificeSlot1(){
-		Debug.Log ("Select Slot 1");
+		showSelectMonsterPage (1);
 	}
 	public void OnSelectSacrificeSlot2(){
-		Debug.Log ("Select Slot 2");
+		showSelectMonsterPage (2);
 	}
 	public void OnSelectSacrificeSlot3(){
-		Debug.Log ("Select Slot 3");
+		showSelectMonsterPage (3);
 	}
 	public void OnSelectSacrificeSlot4(){
-		Debug.Log ("Select Slot 4");
+		showSelectMonsterPage (4);
 	}
 	public void OnSelectSacrificeSlot5(){
-		Debug.Log ("Select Slot 5");
+		showSelectMonsterPage (5);
 	}
 
 	public void OnBack(){
@@ -235,6 +247,44 @@ public class GachaSummonPage : MonoBehaviour
 			SummonResultPage pageScript = page.GetComponent<SummonResultPage>();
 			pageScript.Init(summonResult);
 		});
+	}
+
+	void showSelectMonsterPage(int slotId){
+		Debug.Log ("Select Slot "+slotId);
+		UISystem.getInstance ().showPage ("Prefabs/SelectMonsterPageUI", (page) => {
+			SelectMonsterPage pageScript = page.GetComponent<SelectMonsterPage>();
+			List<UserMonster> initList = new List<UserMonster>();
+			for(int i=0;i<UserDataGenerater.GetInstance().UserMonsterDataList.Count;i++){
+				if(!selectedMonsterList.Contains(UserDataGenerater.GetInstance().UserMonsterDataList[i].id)){
+					initList.Add(UserDataGenerater.GetInstance().UserMonsterDataList[i]);
+				}
+			}
+			pageScript.Init(initList, slotId, OnMonsterSelectedCallback);
+		});
+	}
+
+	void OnMonsterSelectedCallback(string msg){
+		Debug.Log ("monster being selected");
+		string[] _info = msg.Split('_');
+
+		if (selectedSlotMonsterDict.ContainsKey (int.Parse (_info [0]))) {
+			// has select monster, del first, then add
+			selectedMonsterList.Remove (selectedSlotMonsterDict [int.Parse (_info [0])]);
+			selectedSlotMonsterDict[int.Parse (_info [0])] = long.Parse (_info [1]);
+			selectedMonsterList.Add(long.Parse(_info[1]));
+		} else {
+			selectedSlotMonsterDict.Add (int.Parse (_info [0]), long.Parse (_info [1]));
+			selectedMonsterList.Add(long.Parse(_info[1]));
+		}
+
+		setSacrificeSlot(int.Parse(_info[0]), UserDataGenerater.GetInstance().UserMonsterDataDictionary[long.Parse(_info[1])]);
+	}
+
+	void setSacrificeSlot(int _slot, UserMonster _monster){
+		MonsterBase _base = MonsterDataUntility.getInstance ().getMonsterBaseInfoById (_monster.monster_id);
+		m_objSlotShowerArr [_slot-1].transform.FindChild ("QualityFrame").GetComponent<UISprite> ().spriteName = ResourceNameHelper.getInstance ().getRoundFrameNameByQuality (_base.quality);
+		m_objSlotShowerArr [_slot-1].transform.FindChild ("Monster").GetComponent<UISprite> ().spriteName = _base.name;
+		m_objSlotShowerArr [_slot-1].SetActive (true);
 	}
 }
 

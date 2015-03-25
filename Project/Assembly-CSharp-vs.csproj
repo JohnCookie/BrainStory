@@ -192,9 +192,11 @@
      <Compile Include="Assets\Scripts\GameDatas\StaticData.cs" />
      <Compile Include="Assets\Scripts\GameDatas\SummonDataUtility.cs" />
      <Compile Include="Assets\Scripts\GameDatas\UserDataGenerater.cs" />
+     <Compile Include="Assets\Scripts\Items\SummonSlotSelectBoxItem.cs" />
      <Compile Include="Assets\Scripts\Items\UserMonsterBoxItem.cs" />
      <Compile Include="Assets\Scripts\Pages\GachaSummonPage.cs" />
      <Compile Include="Assets\Scripts\Pages\MainPageUI.cs" />
+     <Compile Include="Assets\Scripts\Pages\SelectMonsterPage.cs" />
      <Compile Include="Assets\Scripts\Pages\SummonResultPage.cs" />
      <Compile Include="Assets\Scripts\Pages\TestPageUI.cs" />
      <Compile Include="Assets\Scripts\Pages\UserMonsterBoxPage.cs" />
