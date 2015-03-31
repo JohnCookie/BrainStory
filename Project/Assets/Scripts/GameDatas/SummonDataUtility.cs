@@ -73,7 +73,6 @@ public class SummonDataUtility{
 		}
 		return resultList;
 	}
-	
 
 	JsonData getNormalSummonInfo(NormalSummonType type){
 		return m_NormalSummonData [((int)type).ToString()];
@@ -103,5 +102,108 @@ public class SummonDataUtility{
 		int randomNum = Random.Range (0, m_listMonster.Count);
 		MonsterBase _monster = m_listMonster [randomNum];
 		return _monster;
+	}
+
+	// Sacrifice Summon
+	public List<int> getSacrificeSummonCard(List<long> sacrificeMonsterList){
+		List<int> resultList;
+		int star4MonsterNum=0;
+		int star5MonsterNum=0;
+		int totalStarNum=0;
+
+		for(int i=0;i<sacrificeMonsterList.Count;i++){
+			UserMonster _m = UserDataGenerater.GetInstance().UserMonsterDataDictionary[sacrificeMonsterList[i]];
+			MonsterBase _mb = MonsterDataUntility.getInstance().getMonsterBaseInfoById(_m.monster_id);
+			if(_mb.quality==4){
+				star4MonsterNum++;
+			}
+			if(_mb.quality==5){
+				star5MonsterNum++;
+			}
+			totalStarNum+=_mb.quality;
+		}
+
+		if(star4MonsterNum+star5MonsterNum==0){
+			// low
+			resultList = getSacrificedCardByType(SacrificeSummonType.SACRI_SUMMON_LOW_LEVEL, totalStarNum, star4MonsterNum, star5MonsterNum);
+		}else if (star4MonsterNum+star5MonsterNum>3){
+			// high
+			resultList = getSacrificedCardByType(SacrificeSummonType.SACRI_SUMMON_HIGH_LEVEL, totalStarNum, star4MonsterNum, star5MonsterNum);
+		}else{
+			// normal
+			resultList = getSacrificedCardByType(SacrificeSummonType.SACRI_SUMMON_ATTR_ADJUST, totalStarNum, star4MonsterNum, star5MonsterNum);
+		}
+		return resultList;
+	}
+
+	List<int> getSacrificedCardByType(SacrificeSummonType _type, int _starNum, int _star4Num, int _star5Num){
+		List<int> resultCards=null;
+		switch(_type){
+		case SacrificeSummonType.SACRI_SUMMON_LOW_LEVEL:
+			resultCards = SacrificeLowLevelMonster(_starNum);
+			break;
+		case SacrificeSummonType.SACRI_SUMMON_ATTR_ADJUST:
+			resultCards = SacrificeAttrAdjustMonster(_star4Num, _star5Num);
+			break;
+		case SacrificeSummonType.SACRI_SUMMON_HIGH_LEVEL:
+			resultCards = SacrificeHighLevelMonster();
+			break;
+		}
+		return resultCards;
+	}
+
+	List<int> SacrificeLowLevelMonster(int totalNum){
+		List<int> resultList = new List<int> ();
+		JsonData _info = getSacrificeSummonInfo (SacrificeSummonType.SACRI_SUMMON_LOW_LEVEL);
+		int _infoIndex = 0;
+		for(int i=0;i<_info.Count;i++){
+			if(totalNum>=int.Parse(_info[i]["star_min"].ToString()) && totalNum<=int.Parse(_info[i]["star_max"].ToString())){
+				_infoIndex=i;
+			}
+		}
+		JsonData usedSummonInfo = _info[_infoIndex];
+		JsonData baseRate = usedSummonInfo["rate"];
+		int qualityResult = getQualityFromRate (baseRate);
+		MonsterBase oneMonster = getRandomMonsterByQuality (qualityResult);
+		resultList.Add (oneMonster.id);
+		
+		UserDataGenerater.GetInstance().AddNewMonsterById(oneMonster.id);
+		return resultList;
+	}
+
+	List<int> SacrificeAttrAdjustMonster(int _star4Num, int _star5Num){
+		List<int> resultList = new List<int> ();
+		JsonData _info = getSacrificeSummonInfo (SacrificeSummonType.SACRI_SUMMON_ATTR_ADJUST);
+		int _infoIndex = 0;
+		for(int i=0;i<_info.Count;i++){
+			if(_star4Num>=int.Parse(_info[i]["star_4_num"].ToString()) && _star5Num>=int.Parse(_info[i]["star_5_num"].ToString())){
+				_infoIndex=i;
+			}
+		}
+		JsonData usedSummonInfo = _info[_infoIndex];
+		JsonData baseRate = usedSummonInfo["rate"];
+		int qualityResult = getQualityFromRate (baseRate);
+		MonsterBase oneMonster = getRandomMonsterByQuality (qualityResult);
+		resultList.Add (oneMonster.id);
+		
+		UserDataGenerater.GetInstance().AddNewMonsterById(oneMonster.id);
+		return resultList;
+	}
+
+	List<int> SacrificeHighLevelMonster(){
+		List<int> resultList = new List<int> ();
+		JsonData _info = getSacrificeSummonInfo (SacrificeSummonType.SACRI_SUMMON_HIGH_LEVEL);
+		JsonData usedSummonInfo = _info[0];
+		JsonData baseRate = usedSummonInfo["rate"];
+		int qualityResult = getQualityFromRate (baseRate);
+		MonsterBase oneMonster = getRandomMonsterByQuality (qualityResult);
+		resultList.Add (oneMonster.id);
+		
+		UserDataGenerater.GetInstance().AddNewMonsterById(oneMonster.id);
+		return resultList;
+	}
+
+	JsonData getSacrificeSummonInfo(SacrificeSummonType type){
+		return m_SacrificeSummonData [((int)type).ToString()];
 	}
 }

@@ -196,6 +196,13 @@ public class GachaSummonPage : MonoBehaviour
 
 	public void OnSacrifice(){
 		Debug.Log("Confirm Sacrifice");
+		List<int> m_summonResult = SummonDataUtility.getInstance().getSacrificeSummonCard(selectedMonsterList);
+		string gachas = "";
+		for (int i=0; i<m_summonResult.Count; i++) {
+			gachas += m_summonResult[i].ToString()+" ";
+		}
+		Debug.Log ("GachaResult: " + gachas);
+		ShowSummonResult(m_summonResult);
 	}
 
 	public void OnChooseNormalSummon(){
