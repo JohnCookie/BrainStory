@@ -133,6 +133,8 @@ public class SummonDataUtility{
 			// normal
 			resultList = getSacrificedCardByType(SacrificeSummonType.SACRI_SUMMON_ATTR_ADJUST, totalStarNum, star4MonsterNum, star5MonsterNum);
 		}
+
+		deleteUserMonster (sacrificeMonsterList);
 		return resultList;
 	}
 
@@ -201,6 +203,12 @@ public class SummonDataUtility{
 		
 		UserDataGenerater.GetInstance().AddNewMonsterById(oneMonster.id);
 		return resultList;
+	}
+
+	void deleteUserMonster(List<long> _userMonsterIds){
+		for (int i=0; i<_userMonsterIds.Count; i++) {
+			UserDataGenerater.GetInstance().DelMonsterByUID(_userMonsterIds[i]);	
+		}
 	}
 
 	JsonData getSacrificeSummonInfo(SacrificeSummonType type){

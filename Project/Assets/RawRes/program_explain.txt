@@ -1,0 +1,14 @@
+当前程序目录结构
+CommonWindows
+	常用窗口类，主要用于对话框
+Components
+	可供复用的控件们，例如小头像框等
+GameCore
+	游戏基础的工具类
+GameDatas
+	提供游戏数据支持的工具
+Items
+	游戏中列表中用到的Item
+Pages
+	游戏页面UI
+

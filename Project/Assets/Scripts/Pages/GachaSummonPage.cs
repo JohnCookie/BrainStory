@@ -203,6 +203,12 @@ public class GachaSummonPage : MonoBehaviour
 		}
 		Debug.Log ("GachaResult: " + gachas);
 		ShowSummonResult(m_summonResult);
+		// clear slot (have been deleted in summon process)
+		selectedMonsterList.Clear ();
+		selectedSlotMonsterDict.Clear ();
+		for (int i=1; i<=5; i++) {
+			setSacrificeSlot(i,null);
+		}
 	}
 
 	public void OnChooseNormalSummon(){
@@ -288,10 +294,14 @@ public class GachaSummonPage : MonoBehaviour
 	}
 
 	void setSacrificeSlot(int _slot, UserMonster _monster){
-		MonsterBase _base = MonsterDataUntility.getInstance ().getMonsterBaseInfoById (_monster.monster_id);
-		m_objSlotShowerArr [_slot-1].transform.FindChild ("QualityFrame").GetComponent<UISprite> ().spriteName = ResourceNameHelper.getInstance ().getRoundFrameNameByQuality (_base.quality);
-		m_objSlotShowerArr [_slot-1].transform.FindChild ("Monster").GetComponent<UISprite> ().spriteName = _base.name;
-		m_objSlotShowerArr [_slot-1].SetActive (true);
+		if (_monster == null) {
+			m_objSlotShowerArr [_slot-1].SetActive (false);
+		} else {
+			MonsterBase _base = MonsterDataUntility.getInstance ().getMonsterBaseInfoById (_monster.monster_id);
+			m_objSlotShowerArr [_slot-1].transform.FindChild ("QualityFrame").GetComponent<UISprite> ().spriteName = ResourceNameHelper.getInstance ().getRoundFrameNameByQuality (_base.quality);
+			m_objSlotShowerArr [_slot-1].transform.FindChild ("Monster").GetComponent<UISprite> ().spriteName = _base.name;
+			m_objSlotShowerArr [_slot-1].SetActive (true);
+		}
 	}
 }
 
