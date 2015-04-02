@@ -12,3 +12,98 @@ Items
 Pages
 	游戏页面UI
 
+
+主要通用工具方法
+UISystem
+	单例， 用于游戏中加载页面的管理
+	内置PageObjectRef类，记录Page的索引，名称及引用
+
+	mPageDict 字典
+	mPageList 列表
+
+	可通过UISystem获取主相机以及主panel
+
+	ShowPage(string, callback) 用于显示一个界面
+	ShowLastPage() 用于返回上一个显示的界面
+	GetCurrPageName() 获取当前最上层Page名称
+	showCommonDialog() 显示一个Dialog
+
+	*还需添加
+	showPopView 显示浮动提示
+
+ResourceSystem
+	单例，用于读取游戏资源
+	mResDict 已读取资源的字典
+	loadRes(string,callback) 通过路径读取资源
+
+TimerHelp
+	单例，用于与时间相关的管理
+	DelayFunc(float, callback) 延迟执行方法
+
+	*还需添加
+	时间戳转换
+
+TextUtils
+	单例，用于读取外部数据
+	ReadTextFromResources 通过路径读取txt
+
+	*还需添加
+	外部读写文件
+
+GameCore
+	初始化所有单例
+
+GameConfigs
+	游戏静态配置参数
+
+MonsterDataUtility
+	怪物数据相关
+	包括怪物攻防等类型得枚举类
+	m_monsterBaseInfoList 怪物列表
+	m_dictIdToMonster id对应怪物的字典
+	m_listXStarMonsters X星怪物列表
+	m_dictStarToMonsters 星级对应怪物列表的字典
+
+	getMonsterBaseInfoById 通过基础id查找怪物基础数据
+	getMosnterInfosByQuality 获取所有X星的怪物
+
+ResourceNameHelper
+	获取资源名称的帮助类
+	getRoundFrameNameQuality 获取不同星级圆形外框spritename
+	getSquareFrameNameByQuality 获取不同星级矩形外框spritename
+	getAttackTypeName 获取不同攻击类型图标名称
+	getDefenceTypeName 获取不同防御类型图标名称
+
+SummonDataUtility
+	召唤数据相关
+	包括普通召唤及献祭召唤枚举
+
+	直接通过读取json数据来进行后续操作
+	m_NormalSummonData, m_SacrificeSummonData 两种献祭的json数据
+
+	公用方法
+	getNormalCard(type) 根据普通召唤类型，获取召唤到的怪物
+	getSacrificeSummonCard(List) 根据献祭的怪物列表，获取召唤到的怪物
+
+	内部会用到的方法
+	getQualityFromRate(json) 传入rate，随机出怪物品质
+
+StaticData
+	静态数据类封装
+	所有游戏内json对应到C#类的映射
+
+UserDataGenerater
+	玩家相关数据
+	m_userMonsterData 玩家怪物json
+	m_listUserMonsters 玩家怪物列表
+	m_dictUserMonsters 玩家怪物字典
+
+	列表字典可通过公用方法set/get
+
+	AddNewMonsterById 玩家获取一个怪物
+	DelMonterByUID 玩家删除一个怪物
+	synMonsterJson 将列表同步到json中（json字符串用于存储，进入游戏后读取到列表和字典，之后操作均对列表和字典进行）
+	printCurrMonster 调试用，打印json
+
+	*还需添加
+	生成怪物时技能天赋的初始化等
