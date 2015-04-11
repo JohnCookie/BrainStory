@@ -32,6 +32,11 @@ public class SmallMonsterShower : MonoBehaviour
 		m_labelName.text = _monsterData.name;
 		m_spriteRoundFrame.spriteName = ResourceNameHelper.getInstance().getRoundFrameNameByQuality(_monsterData.quality);
 		m_spriteSquareFrame.spriteName = ResourceNameHelper.getInstance().getSquareFrameNameByQuality(_monsterData.quality);
+		if (m_spriteMonster.atlas.GetSprite (_monsterData.icon.ToString ()) != null) {
+			m_spriteMonster.spriteName = _monsterData.icon.ToString();		
+		} else {
+			m_spriteMonster.spriteName = "0";
+		}
 
 		for(int i=0; i<m_gridQuality.transform.childCount; i++){
 			if(i<_monsterData.quality){

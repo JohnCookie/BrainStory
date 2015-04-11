@@ -38,7 +38,9 @@ public class MonsterBase
 	public int quality { get; set; }
 	public int atk { get; set; }
 	public int def { get; set; }
-	public double spd { get; set; }
+	public double atk_spd { get; set; }
+	public int mov_spd { get; set; }
+	public int range { get; set; }
 	public int intel { get; set; }
 	public int agi { get; set; }
 	public int dex { get; set; }

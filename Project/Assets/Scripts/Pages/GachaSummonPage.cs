@@ -299,7 +299,11 @@ public class GachaSummonPage : MonoBehaviour
 		} else {
 			MonsterBase _base = MonsterDataUntility.getInstance ().getMonsterBaseInfoById (_monster.monster_id);
 			m_objSlotShowerArr [_slot-1].transform.FindChild ("QualityFrame").GetComponent<UISprite> ().spriteName = ResourceNameHelper.getInstance ().getRoundFrameNameByQuality (_base.quality);
-			m_objSlotShowerArr [_slot-1].transform.FindChild ("Monster").GetComponent<UISprite> ().spriteName = _base.name;
+			if(m_objSlotShowerArr [_slot-1].transform.FindChild ("Monster").GetComponent<UISprite> ().atlas.GetSprite(_base.icon.ToString())!=null){
+				m_objSlotShowerArr [_slot-1].transform.FindChild ("Monster").GetComponent<UISprite> ().spriteName = _base.icon.ToString();
+			}else{
+				m_objSlotShowerArr [_slot-1].transform.FindChild ("Monster").GetComponent<UISprite> ().spriteName = "0";
+			}
 			m_objSlotShowerArr [_slot-1].SetActive (true);
 		}
 	}

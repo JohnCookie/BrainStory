@@ -19,7 +19,11 @@ public class SummonSlotSelectBoxItem : MonoBehaviour {
 		parentPage = _pageObj;
 		m_monsterData = _monster;
 		MonsterBase _base = MonsterDataUntility.getInstance ().getMonsterBaseInfoById (m_monsterData.monster_id);
-		m_spriteMonster.spriteName = _base.name;
+		if (m_spriteMonster.atlas.GetSprite (_base.icon.ToString()) != null) {
+			m_spriteMonster.spriteName = _base.icon.ToString();	
+		} else {
+			m_spriteMonster.spriteName = "0";
+		}
 		m_spriteFrame.spriteName = ResourceNameHelper.getInstance ().getSquareFrameNameByQuality (_base.quality);
 		m_labelLv.text = "Lv.0";
 	}
