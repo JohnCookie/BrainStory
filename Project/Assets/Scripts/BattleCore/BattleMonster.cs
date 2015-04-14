@@ -9,6 +9,7 @@ public enum TeamType{
 
 public class BattleMonster
 {
+	public int battleUnitId;
 	public double monsterRealPosX;
 	public double monsterRealPosY;
 	public int monsterIndexX;
@@ -35,6 +36,7 @@ public class BattleMonster
 	 */
 
 	public BattleMonster (UserMonster _monster, Vector2 _pos, TeamType _team){
+		battleUnitId = BattleData.getInstance ().getBattleMonsterId ();
 		// pos info
 		monsterIndexX = (int)_pos.x;
 		monsterIndexY = (int)_pos.y;

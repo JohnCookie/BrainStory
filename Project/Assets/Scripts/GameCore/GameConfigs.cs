@@ -12,4 +12,3 @@ public class GameConfigs
 	public static int map_max_y_index = 9;
 	public static float map_grid_width = 40.0f;
 }
-

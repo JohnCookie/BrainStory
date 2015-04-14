@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public enum MapTileType {
 	None = 0,
-	Player = 1,
+	Monster = 1,
 	Occupied = 2,
 	Obstacle = 3
 }
@@ -38,4 +38,19 @@ public class BattleData {
 
 	public BattleTeam playerBattleMonsterTeam = new BattleTeam();
 	public BattleTeam enermyBattleMosnterTeam = new BattleTeam();
+
+	public int battleMonsterNum = 0;
+
+	public void reset ()
+	{
+		battleMapData = new int[GameConfigs.map_max_x_index, GameConfigs.map_max_y_index];
+		playerBattleMonsterTeam = new BattleTeam();
+		enermyBattleMosnterTeam = new BattleTeam();
+		battleMonsterNum = 0;
+	}
+
+	public int getBattleMonsterId(){
+		battleMonsterNum++;
+		return battleMonsterNum;
+	}
 }

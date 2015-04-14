@@ -5,10 +5,12 @@ using System.Collections.Generic;
 public class BattleCore
 {
 	public void StartBattle(Dictionary<int, UserMonster> playerMosnterTeam, Dictionary<int, UserMonster> enermyMonsterTeam){
+		InitBattleData ();
 		InitMap ();
-
 		InitPlayerBattleMonster (playerMosnterTeam);
 		InitEnermyBattleMonster (enermyMonsterTeam);
+
+		BattleStart ();
 	}
 
 	void InitMap(){
@@ -17,6 +19,10 @@ public class BattleCore
 				BattleData.getInstance().battleMapData[x,y] = (int)MapTileType.None;
 			}
 		}
+	}
+
+	void InitBattleData(){
+		BattleData.getInstance ().reset ();
 	}
 
 	void InitPlayerBattleMonster(Dictionary<int, UserMonster> _team){
@@ -35,6 +41,14 @@ public class BattleCore
 			BattleMonster _monster = new BattleMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.RightTeam), TeamType.RightTeam);
 			BattleData.getInstance().enermyBattleMosnterTeam.addOneMonster(_monster);
 		}
+	}
+
+	void BattleStart(){
+		// Init monsters on map
+		foreach (BattleMonster m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList) {
+			BattleData.getInstance().battleMapData[m.monsterIndexX, m.monsterIndexY] = (int)MapTileType.Monster;
+		}
+
 	}
 }
 
