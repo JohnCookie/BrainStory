@@ -4,31 +4,37 @@ using System.Collections.Generic;
 
 public class BattleCore
 {
-	public void StartBattle(BattleTeam playerMosnterTeam, BattleTeam enermyMonsterTeam){
+	public void StartBattle(Dictionary<int, UserMonster> playerMosnterTeam, Dictionary<int, UserMonster> enermyMonsterTeam){
 		InitMap ();
 
-		BattleData.getInstance ().playerBattleMonsterTeam = playerMosnterTeam;
-		BattleData.getInstance ().enermyBattleMosnterTeam = enermyMonsterTeam;
-		InitBattleMonster ();
+		InitPlayerBattleMonster (playerMosnterTeam);
+		InitEnermyBattleMonster (enermyMonsterTeam);
 	}
 
 	void InitMap(){
 		for (int x=0; x<GameConfigs.map_max_x_index; x++) {
 			for(int y=0; y<GameConfigs.map_max_y_index; y++){
-				BattleData.getInstance().battleMapData[x,y] = 0;
+				BattleData.getInstance().battleMapData[x,y] = (int)MapTileType.None;
 			}
 		}
 	}
 
-	void InitBattleMonster(){
+	void InitPlayerBattleMonster(Dictionary<int, UserMonster> _team){
 		// player monsters
-		// generate dictionary
-		BattleData.getInstance ().playerBattleMonsterTeam.m_monsterDict.Clear ();
-		for (int i=0; i<BattleData.getInstance().playerBattleMonsterTeam.m_monsterList.Count; i++) {
-			BattleData.getInstance ().playerBattleMonsterTeam.m_monsterDict.Add(BattleData.getInstance().playerBattleMonsterTeam.m_monsterList[i].id,
-			                                                                    BattleData.getInstance().playerBattleMonsterTeam.m_monsterList[i]);
+		BattleData.getInstance ().playerBattleMonsterTeam.reset ();
+		foreach (int key in _team.Keys) {
+			BattleMonster _monster = new BattleMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.LeftTeam), TeamType.LeftTeam);
+			BattleData.getInstance().playerBattleMonsterTeam.addOneMonster(_monster);
 		}
+	}
 
+	void InitEnermyBattleMonster(Dictionary<int, UserMonster> _team){
+		// enermy monsters
+		BattleData.getInstance ().enermyBattleMosnterTeam.reset ();
+		foreach (int key in _team.Keys) {
+			BattleMonster _monster = new BattleMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.RightTeam), TeamType.RightTeam);
+			BattleData.getInstance().enermyBattleMosnterTeam.addOneMonster(_monster);
+		}
 	}
 }
 

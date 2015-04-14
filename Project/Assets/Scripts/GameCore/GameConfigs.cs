@@ -10,6 +10,6 @@ public class GameConfigs
 	// battle map
 	public static int map_max_x_index = 18;
 	public static int map_max_y_index = 9;
-	public static int map_grid_length = 40;
+	public static float map_grid_width = 40.0f;
 }
 

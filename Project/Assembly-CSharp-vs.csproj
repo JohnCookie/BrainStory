@@ -181,7 +181,9 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleCore.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleData.cs" />
+     <Compile Include="Assets\Scripts\BattleCore\BattleMapUtil.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleMonster.cs" />
+     <Compile Include="Assets\Scripts\BattleCore\BattleTeam.cs" />
      <Compile Include="Assets\Scripts\CommonWindows\CommonDialog.cs" />
      <Compile Include="Assets\Scripts\Components\SmallMonsterShower.cs" />
      <Compile Include="Assets\Scripts\GameCore\GameConfigs.cs" />
@@ -190,6 +192,7 @@
      <Compile Include="Assets\Scripts\GameCore\TextUtils.cs" />
      <Compile Include="Assets\Scripts\GameCore\TimerHelper.cs" />
      <Compile Include="Assets\Scripts\GameCore\UISystem.cs" />
+     <Compile Include="Assets\Scripts\GameDatas\LvExpDataUtility.cs" />
      <Compile Include="Assets\Scripts\GameDatas\MonsterDataUtility.cs" />
      <Compile Include="Assets\Scripts\GameDatas\ResourceNameHelper.cs" />
      <Compile Include="Assets\Scripts\GameDatas\StaticData.cs" />
@@ -222,6 +225,7 @@
      <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
+     <None Include="Assets\Resources\Texts\GameData\exp_lv_config.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
