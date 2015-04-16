@@ -120,7 +120,7 @@ public class BattleMonster
 			break;
 		case MonsterStatus.Moving:
 			if(checkIsArrived()){
-				Debug.Log("Monster_"+battleUnitId+" detect: arrive at target position");
+				Debug.Log("Monster_"+battleUnitId+" detect: arrive at target position ("+this.monsterTargetIndexX+","+this.monsterTargetIndexY+")");
 				setStatus(MonsterStatus.Prepared);
 			}
 			break;
@@ -208,12 +208,15 @@ public class BattleMonster
 	public virtual void die(){
 		if (team == TeamType.LeftTeam) {
 			BattleData.getInstance().enermyBattleMosnterTeam.removeOneMonster(targetMonster);
+			Debug.Log("Right Team has "+BattleData.getInstance().enermyBattleMosnterTeam.getMonsterNum()+" monster(s) left.");
 		}
 		if (team == TeamType.RightTeam) {
 			BattleData.getInstance().playerBattleMonsterTeam.removeOneMonster(targetMonster);
+			Debug.Log("Left Team has "+BattleData.getInstance().playerBattleMonsterTeam.getMonsterNum()+" monster(s) left.");
 		}
 		BattleData.getInstance ().battleMapData [monsterIndexX, monsterIndexY] = (int)MapTileType.None;
 		BattleData.getInstance ().battleMapData [monsterTargetIndexX, monsterTargetIndexY] = (int)MapTileType.None;
+
 		Report_Die ();
 	}
 

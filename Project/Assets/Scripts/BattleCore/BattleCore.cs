@@ -60,11 +60,11 @@ public class BattleCore
 		for (double t=0;; t+=GameConfigs.battle_tick_step) {
 			// check if battle end
 			if(BattleData.getInstance().playerBattleMonsterTeam.getMonsterNum()<=0){
-				Debug.Log("----- Battle End, Player(LeftSide) Team Win -----");
+				Debug.Log("----- Battle End, Enermy(RightSide) Team Win -----");
 				break;
 			}
 			if(BattleData.getInstance().enermyBattleMosnterTeam.getMonsterNum()<=0){
-				Debug.Log("----- Battle End, Enermy(RightSide) Team Win -----");
+				Debug.Log("----- Battle End, Player(RightSide) Team Win -----");
 				break;
 			}
 			// update position
