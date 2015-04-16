@@ -6,9 +6,7 @@ public class BattleTeam{
 	public List<BattleMonster> m_monsterList;
 
 	public BattleTeam(){
-		extra = 0;
-		m_monsterList = new List<BattleMonster> ();
-		m_monsterList.Clear ();
+		reset ();
 	}
 
 	public void reset ()
@@ -20,13 +18,15 @@ public class BattleTeam{
 
 	public void addOneMonster(BattleMonster _monster){
 		m_monsterList.Add (_monster);
+		BattleData.getInstance ().battleMonsterDict.Add (_monster.battleUnitId, _monster);
 	}
 
 	public void removeOneMonster(BattleMonster _monster){
 		m_monsterList.Remove (_monster);
+		BattleData.getInstance ().battleMonsterDict.Remove (_monster.battleUnitId);
 	}
 
-	public int monsterNum(){
+	public int getMonsterNum(){
 		return m_monsterList.Count;
 	}
 }

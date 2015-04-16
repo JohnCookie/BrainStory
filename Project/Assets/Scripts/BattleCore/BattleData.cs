@@ -38,8 +38,11 @@ public class BattleData {
 
 	public BattleTeam playerBattleMonsterTeam = new BattleTeam();
 	public BattleTeam enermyBattleMosnterTeam = new BattleTeam();
-
+	public Dictionary<int, BattleMonster> battleMonsterDict = new Dictionary<int, BattleMonster>();
+	// used to generate monster id in battle
 	public int battleMonsterNum = 0;
+	// used to record monster relation to reset target
+	public Dictionary<int, List<int>> monsterRelationDict = new Dictionary<int, List<int>>();
 
 	public void reset ()
 	{
@@ -47,6 +50,8 @@ public class BattleData {
 		playerBattleMonsterTeam = new BattleTeam();
 		enermyBattleMosnterTeam = new BattleTeam();
 		battleMonsterNum = 0;
+		battleMonsterDict.Clear ();
+		monsterRelationDict.Clear ();
 	}
 
 	public int getBattleMonsterId(){

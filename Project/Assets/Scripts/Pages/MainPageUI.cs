@@ -50,15 +50,22 @@ public class MainPageUI : MonoBehaviour
 	}
 	
 	public void OnTestFunction2(){
-		/*
+		// Test Delay Function
+		/* 
 		TimerHelper.getInstance ().DelayFunc (2.0f, delegate() {
 			TestJsonLit ();
 		});
 		*/
+		// Test Monster Create
+		/*
 		UserMonster monster_1 = UserDataGenerater.GetInstance().UserMonsterDataList[0];
 		long id = monster_1.id;
 		Debug.Log(id);
 		UserDataGenerater.GetInstance().DelMonsterByUID(id);
+		*/
+		// Simulate Battle
+		BattleSimulateTest battleSimulater = new BattleSimulateTest ();
+		battleSimulater.simulate1v1Battle ();
 	}
 
 	void TestJsonLit(){

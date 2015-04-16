@@ -10,5 +10,10 @@ public class GameConfigs
 	// battle map
 	public static int map_max_x_index = 18;
 	public static int map_max_y_index = 9;
-	public static float map_grid_width = 40.0f;
+	public static double map_grid_width = 40.0;
+	// battle setting
+	public static double battle_tick_step = 0.1;
+
+	// monster intelligence for cast percent
+	public static double intel_to_cast = 0.6;
 }

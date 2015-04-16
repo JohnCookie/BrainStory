@@ -28,18 +28,18 @@ public class SmallMonsterShower : MonoBehaviour
 		MonsterBase _monsterData = MonsterDataUntility.getInstance().getMonsterBaseInfoById(_id);
 		m_monsterData = _monsterData;
 
-		m_spriteCornerType.spriteName = ResourceNameHelper.getInstance().getAttackTypeName((MonsterAtkType)_monsterData.atk_type);
-		m_labelName.text = _monsterData.name;
-		m_spriteRoundFrame.spriteName = ResourceNameHelper.getInstance().getRoundFrameNameByQuality(_monsterData.quality);
-		m_spriteSquareFrame.spriteName = ResourceNameHelper.getInstance().getSquareFrameNameByQuality(_monsterData.quality);
-		if (m_spriteMonster.atlas.GetSprite (_monsterData.icon.ToString ()) != null) {
-			m_spriteMonster.spriteName = _monsterData.icon.ToString();		
+		m_spriteCornerType.spriteName = ResourceNameHelper.getInstance().getAttackTypeName((MonsterAtkType)m_monsterData.atk_type);
+		m_labelName.text = m_monsterData.name;
+		m_spriteRoundFrame.spriteName = ResourceNameHelper.getInstance().getRoundFrameNameByQuality(m_monsterData.quality);
+		m_spriteSquareFrame.spriteName = ResourceNameHelper.getInstance().getSquareFrameNameByQuality(m_monsterData.quality);
+		if (m_spriteMonster.atlas.GetSprite (m_monsterData.icon.ToString ()) != null) {
+			m_spriteMonster.spriteName = m_monsterData.icon.ToString();		
 		} else {
 			m_spriteMonster.spriteName = "0";
 		}
 
 		for(int i=0; i<m_gridQuality.transform.childCount; i++){
-			if(i<_monsterData.quality){
+			if(i<m_monsterData.quality){
 				m_gridQuality.transform.GetChild(i).gameObject.SetActive(true);
 			}else{
 				m_gridQuality.transform.GetChild(i).gameObject.SetActive(false);

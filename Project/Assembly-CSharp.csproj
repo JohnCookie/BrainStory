@@ -183,6 +183,7 @@
      <Compile Include="Assets\Scripts\BattleCore\BattleData.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleMapUtil.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleMonster.cs" />
+     <Compile Include="Assets\Scripts\BattleCore\BattleSimulateTest.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleTeam.cs" />
      <Compile Include="Assets\Scripts\CommonWindows\CommonDialog.cs" />
      <Compile Include="Assets\Scripts\Components\SmallMonsterShower.cs" />
@@ -200,6 +201,7 @@
      <Compile Include="Assets\Scripts\GameDatas\UserDataGenerater.cs" />
      <Compile Include="Assets\Scripts\Items\SummonSlotSelectBoxItem.cs" />
      <Compile Include="Assets\Scripts\Items\UserMonsterBoxItem.cs" />
+     <Compile Include="Assets\Scripts\Monsters\TestMonster.cs" />
      <Compile Include="Assets\Scripts\Pages\GachaSummonPage.cs" />
      <Compile Include="Assets\Scripts\Pages\MainPageUI.cs" />
      <Compile Include="Assets\Scripts\Pages\SelectMonsterPage.cs" />
