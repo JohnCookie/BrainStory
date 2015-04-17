@@ -144,7 +144,6 @@ public class BattleMonster
 			// same position
 			setStatus(MonsterStatus.Prepared);
 		} else {
-			setStatus(MonsterStatus.Moving);
 			updateTargetIndex ((int)searchResult.x, (int)searchResult.y);
 			if(this.monsterTargetIndexX - this.monsterIndexX > 0){
 				this.movingX = moveSpd;
@@ -161,6 +160,7 @@ public class BattleMonster
 			}else{
 				this.movingY = 0;
 			}
+			setStatus(MonsterStatus.Moving);
 		}
 	}
 
@@ -168,7 +168,7 @@ public class BattleMonster
 		attackIntervalAddUp += GameConfigs.battle_tick_step;
 		if (attackIntervalAddUp >= atkSpd) {
 			if (skills.Count > 0) {
-				double cast_percent = intel * GameConfigs.intel_to_cast > 0.5 ? 0.5 : intel * GameConfigs.intel_to_cast;
+				double cast_percent = intel * GameConfigs.intel_per_cast > GameConfigs.cast_max_percent ? GameConfigs.cast_max_percent : intel * GameConfigs.intel_per_cast;
 				if (UnityEngine.Random.Range (0.0f, 1.0f) < cast_percent) {
 					_cast ();
 				} else {
@@ -286,23 +286,32 @@ public class BattleMonster
 	// generate report interface
 	void Report_Born(){
 		Debug.Log("[Report] Monster_"+battleUnitId+" born at ("+monsterIndexX+","+monsterIndexY+").");
+		BattleReportGenerater.getInstance ().addEvent (battleUnitId, BattleData.getInstance ().currBattleTime, monsterIndexX, monsterIndexY, ReportActionType.Locate);
 	}
 	void Report_Status_Change(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " switch status to " + status);
+		if (status == MonsterStatus.Moving) {
+			BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, monsterTargetIndexX, monsterTargetIndexY, ReportActionType.Move);
+		}
 	}
 	void Report_Fight(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " fight on Monster_" + targetMonster.battleUnitId);
+		BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, 0, 0, ReportActionType.Attack);
 	}
 	void Report_Cast(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " cast magic on Monster_" + targetMonster.battleUnitId);
+		BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, 0, 0, ReportActionType.Cast);
 	}
 	void Report_Hurted(int damage){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " being hurted, " + damage + " damage, current hp: " + hp);
+		BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, damage, 0, ReportActionType.Hurt);
 	}
 	void Report_Healed(int heal){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " being healed, " + heal + " heal, current hp: " + hp);
+		BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, heal, 0, ReportActionType.Heal);
 	}
 	void Report_Die(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " die!");
+		BattleReportGenerater.getInstance ().addEvent (battleUnitId, BattleData.getInstance ().currBattleTime, 0, 0, ReportActionType.Die);
 	}
 }

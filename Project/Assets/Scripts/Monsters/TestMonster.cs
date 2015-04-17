@@ -15,7 +15,13 @@ public class TestMonster : BattleMonster
 	protected override void _fight ()
 	{
 		base._fight ();
-		int damage = (int)(atk - targetMonster.def) > 0 ? (int)(atk - targetMonster.def) : 0;
+		int damage = 0;
+		double crit_percent = agi * GameConfigs.agi_per_crit > GameConfigs.crit_max_percent ? GameConfigs.crit_max_percent : agi * GameConfigs.agi_per_crit;
+		if (UnityEngine.Random.Range (0.0f, 1.0f) < crit_percent) {
+			damage = (int)(atk*1.5-targetMonster.def) > 0 ? (int)(atk*1.5-targetMonster.def) : 0;
+		} else {
+			damage = (int)(atk - targetMonster.def) > 0 ? (int)(atk - targetMonster.def) : 0;
+		}
 		targetMonster.beHurted (damage);
 	}
 

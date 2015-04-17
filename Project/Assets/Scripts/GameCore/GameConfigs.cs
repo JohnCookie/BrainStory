@@ -15,5 +15,12 @@ public class GameConfigs
 	public static double battle_tick_step = 0.1;
 
 	// monster intelligence for cast percent
-	public static double intel_to_cast = 0.6;
+	public static double intel_per_cast = 0.06;
+	public static double cast_max_percent = 0.6;
+	// monster agi for crit
+	public static double agi_per_crit = 0.06;
+	public static double crit_max_percent = 0.6;
+	// monster dex for dodge
+	public static double dex_per_dodge = 0.06;
+	public static double dodge_max_percent = 0.6;
 }

@@ -11,6 +11,8 @@ public class BattleCore
 		InitEnermyBattleMonster (enermyMonsterTeam);
 
 		BattleStart ();
+
+		//PrintBattleReport ();
 	}
 
 	void InitMap(){
@@ -44,6 +46,7 @@ public class BattleCore
 	}
 
 	void BattleStart(){
+		BattleReportGenerater.getInstance ().clearList ();
 		Debug.Log("----- Battle Start -----");
 		// Init monsters on map
 		foreach (BattleMonster m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList) {
@@ -58,14 +61,15 @@ public class BattleCore
 
 		// Time Tick
 		for (double t=0;; t+=GameConfigs.battle_tick_step) {
+			BattleData.getInstance().currBattleTime = t;
 			// check if battle end
 			if(BattleData.getInstance().playerBattleMonsterTeam.getMonsterNum()<=0){
 				Debug.Log("----- Battle End, Enermy(RightSide) Team Win -----");
-				break;
+				return;
 			}
 			if(BattleData.getInstance().enermyBattleMosnterTeam.getMonsterNum()<=0){
 				Debug.Log("----- Battle End, Player(RightSide) Team Win -----");
-				break;
+				return;
 			}
 			// update position
 			CalculateMonsterPositions();
@@ -76,6 +80,10 @@ public class BattleCore
 			// calculate effect on map
 			CalculateEffectsOnMap();
 		}
+	}
+
+	void PrintBattleReport(){
+		Debug.Log(BattleReportGenerater.getInstance().getReportStr());
 	}
 
 	void CalculateAddition(){

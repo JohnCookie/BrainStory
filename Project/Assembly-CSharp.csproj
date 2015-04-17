@@ -183,6 +183,7 @@
      <Compile Include="Assets\Scripts\BattleCore\BattleData.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleMapUtil.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleMonster.cs" />
+     <Compile Include="Assets\Scripts\BattleCore\BattleReportGenerater.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleSimulateTest.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleTeam.cs" />
      <Compile Include="Assets\Scripts\CommonWindows\CommonDialog.cs" />

@@ -41,6 +41,8 @@ public class BattleData {
 	public Dictionary<int, BattleMonster> battleMonsterDict = new Dictionary<int, BattleMonster>();
 	// used to generate monster id in battle
 	public int battleMonsterNum = 0;
+	// simulate battle time tick
+	public double currBattleTime = 0;
 	// used to record monster relation to reset target
 	public Dictionary<int, List<int>> monsterRelationDict = new Dictionary<int, List<int>>();
 
@@ -50,6 +52,7 @@ public class BattleData {
 		playerBattleMonsterTeam = new BattleTeam();
 		enermyBattleMosnterTeam = new BattleTeam();
 		battleMonsterNum = 0;
+		currBattleTime = 0;
 		battleMonsterDict.Clear ();
 		monsterRelationDict.Clear ();
 	}
