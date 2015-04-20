@@ -144,6 +144,7 @@ public class BattleMonster
 			// same position
 			setStatus(MonsterStatus.Prepared);
 		} else {
+			setStatus(MonsterStatus.Moving);
 			updateTargetIndex ((int)searchResult.x, (int)searchResult.y);
 			if(this.monsterTargetIndexX - this.monsterIndexX > 0){
 				this.movingX = moveSpd;
@@ -160,7 +161,6 @@ public class BattleMonster
 			}else{
 				this.movingY = 0;
 			}
-			setStatus(MonsterStatus.Moving);
 		}
 	}
 

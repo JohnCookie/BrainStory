@@ -64,13 +64,22 @@ public class BattleReportGenerater
 		reportEventList.Add (new BattleReportEvent (id, t, v1, v2, type));
 	}
 
-	public JsonData getReportStr(){
-		JsonData[] reportArr = new JsonData[reportEventList.Count];
-		for (int i=0; i<reportEventList.Count; i++) {
-			reportArr[i] = reportEventList[i].convertToJson();
+	public string getReportStr(){
+//		List<JsonData> reportList = new List<JsonData>();
+//		for (int i=0; i<reportEventList.Count; i++) {
+//			reportList.Add(reportEventList[i].convertToJson());
+//		}
+//		string json_array=JsonMapper.ToJson(reportList);
+//		return json_array;
+		string reportArr = "[";
+		for(int i=0;i<reportEventList.Count;i++){
+			reportArr+=reportEventList[i].convertToJson().ToJson();
+			if(i!=reportEventList.Count-1){
+				reportArr+=",";
+			}
 		}
-		string json_array=JsonMapper.ToJson(reportArr);
-		return json_array;
+		reportArr+="]";
+		return reportArr;
 	}
 
 

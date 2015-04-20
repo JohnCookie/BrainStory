@@ -12,7 +12,7 @@ public class BattleCore
 
 		BattleStart ();
 
-		//PrintBattleReport ();
+		PrintBattleReport ();
 	}
 
 	void InitMap(){
