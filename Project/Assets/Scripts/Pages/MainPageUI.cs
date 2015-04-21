@@ -36,7 +36,8 @@ public class MainPageUI : MonoBehaviour
 
 	#region for test
 	public void OnTestFunction1(){
-		Debug.Log("click show test page");
+		// Test Dialog Show
+		/*
 		UISystem.getInstance ().showCommonDialog (CommonDialogStyle.ConfirmCancleStyle, "TITLE", "AAA\n   BBB\n      CCC",
 		                                          (string msgLeft) => {
 			Debug.Log ("Left Dialog Btn");
@@ -45,8 +46,9 @@ public class MainPageUI : MonoBehaviour
 			Debug.Log ("Right Dialog Btn");
 		},
 		null);
-		
-		UserDataGenerater.GetInstance().printCurrMonsters();
+		*/
+		// Test Simple Animation
+		UISystem.getInstance ().showPage ("Prefabs/BattleTesterControl");
 	}
 	
 	public void OnTestFunction2(){
