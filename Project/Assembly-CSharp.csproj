@@ -182,10 +182,17 @@
      <Compile Include="Assets\Scripts\BattleCore\BattleCore.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleData.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleMapUtil.cs" />
-     <Compile Include="Assets\Scripts\BattleCore\BattleMonster.cs" />
+     <Compile Include="Assets\Scripts\BattleCore\BattleMonsterActionInterface.cs" />
+     <Compile Include="Assets\Scripts\BattleCore\BattleMonsterBase.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleReportGenerater.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleSimulateTest.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleTeam.cs" />
+     <Compile Include="Assets\Scripts\BattleCore\Monsters\TestConcreteMonster.cs" />
+     <Compile Include="Assets\Scripts\BattleShower\BattleMonsterPrefabFactory.cs" />
+     <Compile Include="Assets\Scripts\BattleShower\BattleReplayMgr.cs" />
+     <Compile Include="Assets\Scripts\BattleShower\BattleReplayPage.cs" />
+     <Compile Include="Assets\Scripts\BattleShower\Monsters\BaseMonsterShower.cs" />
+     <Compile Include="Assets\Scripts\BattleShower\Monsters\TestMonsterShower.cs" />
      <Compile Include="Assets\Scripts\BattleShower\Tester\BattleTesterControl.cs" />
      <Compile Include="Assets\Scripts\BattleShower\Tester\BattleTesterUnit.cs" />
      <Compile Include="Assets\Scripts\CommonWindows\CommonDialog.cs" />
@@ -204,7 +211,6 @@
      <Compile Include="Assets\Scripts\GameDatas\UserDataGenerater.cs" />
      <Compile Include="Assets\Scripts\Items\SummonSlotSelectBoxItem.cs" />
      <Compile Include="Assets\Scripts\Items\UserMonsterBoxItem.cs" />
-     <Compile Include="Assets\Scripts\Monsters\TestMonster.cs" />
      <Compile Include="Assets\Scripts\Pages\GachaSummonPage.cs" />
      <Compile Include="Assets\Scripts\Pages\MainPageUI.cs" />
      <Compile Include="Assets\Scripts\Pages\SelectMonsterPage.cs" />

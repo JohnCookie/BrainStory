@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public enum TeamType{
 	RightTeam,
 	LeftTeam
@@ -14,7 +14,7 @@ public enum MonsterStatus{
 	Attacking,
 	Dead
 }
-
+*/
 public class BattleMonster
 {
 	public int battleUnitId;

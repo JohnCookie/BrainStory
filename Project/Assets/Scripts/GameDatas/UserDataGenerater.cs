@@ -94,5 +94,9 @@ public class UserDataGenerater
 		synMonsterJson ();
 		Debug.Log (m_userMonsterData.ToJson ());
 	}
+
+	public UserMonster getUserMonsterByUniqueId(long id){
+		return m_dictUserMonsters[id];
+	}
 }
 

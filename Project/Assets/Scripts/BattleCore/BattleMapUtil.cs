@@ -37,9 +37,9 @@ public class BattleMapUtil
 		return new Vector2 (_x, _y);
 	}
 
-	public static Vector2 getNextStepPosition(BattleMonster _m){
-
-		BattleMonster targetMonster = null;
+	public static Vector2 getNextStepPosition(BattleMonsterBase _m){
+		
+		BattleMonsterBase targetMonster = null;
 		BattleTeam tarTeam = null;
 		if (_m.team == TeamType.LeftTeam) {
 			tarTeam = BattleData.getInstance().enermyBattleMosnterTeam;
@@ -48,13 +48,13 @@ public class BattleMapUtil
 			tarTeam = BattleData.getInstance().playerBattleMonsterTeam;
 		}
 		int distance = 999;
-		foreach(BattleMonster bm in tarTeam.m_monsterList){
-			if(getDistanceBetween2Monster(bm,_m)<distance){
-				distance=getDistanceBetween2Monster(bm,_m);
+		foreach(BattleMonsterBase bm in tarTeam.m_monsterList){
+			if(getDistanceBetween2BaseMonster(bm,_m)<distance){
+				distance=getDistanceBetween2BaseMonster(bm,_m);
 				targetMonster=bm;
 			}
 		}
-
+		
 		Vector2 targetPosition = getTarPosition (_m, targetMonster);
 		if (_m.monsterIndexX != targetPosition.x || _m.monsterIndexY != targetPosition.y) {
 			_m.targetMonster = targetMonster;
@@ -71,15 +71,15 @@ public class BattleMapUtil
 		return result;
 	}
 
-	public static int getDistanceBetween2Monster(BattleMonster m1, BattleMonster m2){
+	public static int getDistanceBetween2BaseMonster(BattleMonsterBase m1, BattleMonsterBase m2){
 		return Math.Abs(m1.monsterTargetIndexX-m2.monsterIndexX)+Math.Abs(m1.monsterTargetIndexY-m2.monsterIndexY);
 	}
 
 	static int getDistanceBetween2Vector2(Vector2 v1, Vector2 v2){
 		return (int)(Math.Abs(v1.x-v2.x)+Math.Abs(v1.y-v2.y));
 	}
-
-	static Vector2 getTarPosition(BattleMonster startMonster, BattleMonster targetMonster){
+	
+	static Vector2 getTarPosition(BattleMonsterBase startMonster, BattleMonsterBase targetMonster){
 		// find free nearTargetMonster
 		List<Vector2> freePositionList = new List<Vector2> ();
 		foreach(Vector2 posOffsets in getOffsetsByRange(startMonster.range)){
@@ -89,7 +89,7 @@ public class BattleMapUtil
 				}
 			}
 		}
-
+		
 		// find nearlist point in list
 		int distance = 999;
 		Vector2 targetPos = new Vector2 ();
@@ -104,7 +104,7 @@ public class BattleMapUtil
 			targetPos.x = startMonster.monsterIndexX;
 			targetPos.y = startMonster.monsterIndexY;
 		}
-
+		
 		Vector2 moveToward = new Vector2 ();
 		// find the position move towards which near self position
 		if (targetPos.x > startMonster.monsterIndexX) {
@@ -114,7 +114,7 @@ public class BattleMapUtil
 		} else {
 			moveToward.x = startMonster.monsterIndexX;
 		}
-
+		
 		if (targetPos.y > startMonster.monsterIndexY) {
 			moveToward.y = startMonster.monsterIndexY + 1;
 		} else if (targetPos.y < startMonster.monsterIndexY) {
@@ -122,7 +122,7 @@ public class BattleMapUtil
 		} else {
 			moveToward.y = startMonster.monsterIndexY;
 		}
-
+		
 		return moveToward;
 	}
 

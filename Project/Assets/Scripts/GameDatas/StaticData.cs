@@ -67,3 +67,36 @@ public class UserMonster
 	public List<int> talents {get; set;}
 }
 #endregion
+
+#region BattleReplayReport
+public class BattleReward
+{
+	public int exp { get; set; }
+	public int gold { get; set; }
+}
+
+public class ReplayReport
+{
+	public int type { get; set; }
+	public int id { get; set; }
+	public double time { get; set; }
+	public int v1 { get; set; }
+	public int v2 { get; set; }
+	public int v3 { get; set; }
+}
+
+public class BattleUnit
+{
+	public long monster_id { get; set; }
+	public int battle_id { get; set; }
+}
+
+public class BattleReplayInfo
+{
+	public int result { get; set; }
+	public List<List<BattleUnit>> team { get; set; }
+	public BattleReward reward { get; set; }
+	public List<ReplayReport> report { get; set; }
+	public string extra { get; set; }
+}
+#endregion

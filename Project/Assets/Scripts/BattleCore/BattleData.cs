@@ -38,7 +38,7 @@ public class BattleData {
 
 	public BattleTeam playerBattleMonsterTeam = new BattleTeam();
 	public BattleTeam enermyBattleMosnterTeam = new BattleTeam();
-	public Dictionary<int, BattleMonster> battleMonsterDict = new Dictionary<int, BattleMonster>();
+	public Dictionary<int, BattleMonsterBase> battleMonsterBaseDict = new Dictionary<int, BattleMonsterBase> ();
 	// used to generate monster id in battle
 	public int battleMonsterNum = 0;
 	// simulate battle time tick
@@ -53,7 +53,6 @@ public class BattleData {
 		enermyBattleMosnterTeam = new BattleTeam();
 		battleMonsterNum = 0;
 		currBattleTime = 0;
-		battleMonsterDict.Clear ();
 		monsterRelationDict.Clear ();
 	}
 

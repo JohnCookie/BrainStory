@@ -31,7 +31,7 @@ public class BattleCore
 		// player monsters
 		BattleData.getInstance ().playerBattleMonsterTeam.reset ();
 		foreach (int key in _team.Keys) {
-			TestMonster _monster = new TestMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.LeftTeam), TeamType.LeftTeam);
+			BattleMonsterBase _monster = new TestConcreteMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.LeftTeam), TeamType.LeftTeam);
 			BattleData.getInstance().playerBattleMonsterTeam.addOneMonster(_monster);
 		}
 	}
@@ -40,7 +40,7 @@ public class BattleCore
 		// enermy monsters
 		BattleData.getInstance ().enermyBattleMosnterTeam.reset ();
 		foreach (int key in _team.Keys) {
-			TestMonster _monster = new TestMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.RightTeam), TeamType.RightTeam);
+			BattleMonsterBase _monster = new TestConcreteMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.RightTeam), TeamType.RightTeam);
 			BattleData.getInstance().enermyBattleMosnterTeam.addOneMonster(_monster);
 		}
 	}
@@ -49,10 +49,10 @@ public class BattleCore
 		BattleReportGenerater.getInstance ().clearList ();
 		Debug.Log("----- Battle Start -----");
 		// Init monsters on map
-		foreach (BattleMonster m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList) {
+		foreach (BattleMonsterBase m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList) {
 			BattleData.getInstance().battleMapData[m.monsterIndexX, m.monsterIndexY] = (int)MapTileType.Monster;
 		}
-		foreach (BattleMonster m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList) {
+		foreach (BattleMonsterBase m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList) {
 			BattleData.getInstance().battleMapData[m.monsterIndexX, m.monsterIndexY] = (int)MapTileType.Monster;	
 		}
 
@@ -88,41 +88,41 @@ public class BattleCore
 
 	void CalculateAddition(){
 		Debug.Log("-----> Calculate Additions");
-		foreach (BattleMonster m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList) {
-			m.calculateAddition();
-		}
-		foreach (BattleMonster m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList) {
-			m.calculateAddition();	
-		}
+//		foreach (BattleMonster m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList) {
+//			m.calculateAddition();
+//		}
+//		foreach (BattleMonster m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList) {
+//			m.calculateAddition();	
+//		}
 	}
 
 	void CalculateMonsterPositions(){
-		foreach(BattleMonster m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList){
-			m.updatePosition();
+		foreach(BattleMonsterBase m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList){
+			m.Move();
 		}
-		foreach(BattleMonster m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList){
-			m.updatePosition();
+		foreach(BattleMonsterBase m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList){
+			m.Move();
 		}
 	}
 
 	void MonsterActions(){
-		foreach(BattleMonster m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList){
+		foreach(BattleMonsterBase m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList){
 			m.updateSelfAction();
 		}
-		foreach(BattleMonster m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList){
+		foreach(BattleMonsterBase m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList){
 			m.updateSelfAction();
 		}
 	}
 
 	void CalculateBuffAndDebuffs(){
-		foreach(BattleMonster m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList){
-			m.updateDotDebuff();
-			m.updateHotBuff();
-		}
-		foreach(BattleMonster m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList){
-			m.updateDotDebuff();
-			m.updateHotBuff();
-		}
+//		foreach(BattleMonsterBase m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList){
+//			m.updateDotDebuff();
+//			m.updateHotBuff();
+//		}
+//		foreach(BattleMonsterBase m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList){
+//			m.updateDotDebuff();
+//			m.updateHotBuff();
+//		}
 	}
 
 	void CalculateEffectsOnMap(){
