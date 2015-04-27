@@ -1,20 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
-public class BaseMonsterShower : MonoBehaviour
+public abstract class BaseMonsterShower : MonoBehaviour
 {
 	public UISprite m_spriteMonster;
 	public Animator m_animator;
 	public UILabel m_hub;
 	
-	int move_hash, attack_hash, cast_hash, die_hash, hurted_hash;
-	
+	protected int idle_hash,move_hash, attack_hash, cast_hash, die_hash, hp_hash;
+
 	void Awake(){
 		move_hash = Animator.StringToHash ("BattleTesterUnitAnimation");
 		attack_hash = Animator.StringToHash ("BattleTesterUnitAttack");
 		cast_hash = Animator.StringToHash ("BattleTesterUnitCast");
 		die_hash = Animator.StringToHash ("BattleTesterUnitDie");
-		hurted_hash = Animator.StringToHash ("BattleTesterUnitHurted");
+		hp_hash = Animator.StringToHash ("BattleTesterUnitHurted");
 	}
 	
 	// Use this for initialization
@@ -28,28 +28,17 @@ public class BaseMonsterShower : MonoBehaviour
 	{
 		
 	}
-	
-	public void Move(){
-		m_animator.Play (move_hash);
+
+	public void Locate(int x, int y){
+		transform.localPosition = new Vector3 ((float)(x * GameConfigs.map_grid_width), (float)(-y * GameConfigs.map_grid_width), 0.0f);
 	}
-	public void Attack(){
-		m_animator.Play (attack_hash);
-	}
-	public void Cast(){
-		m_animator.Play (cast_hash);
-	}
-	public void Die(){
-		m_animator.Play (die_hash);
-	}
-	public void Healed(){
-		m_hub.color = Color.green;
-		m_hub.text = "+10";
-		m_animator.Play (hurted_hash);
-	}
-	public void Hurted(){
-		m_hub.color = Color.red;
-		m_hub.text = "-10";
-		m_animator.Play (hurted_hash);
-	}
+
+	public abstract void Idle ();
+	public abstract void Move (int x, int y, double spd);
+	public abstract void Attack ();
+	public abstract void Cast (int skillId);
+	public abstract void Die ();
+	public abstract void Healed (int damage);
+	public abstract void Hurted (int heal);
 }
 

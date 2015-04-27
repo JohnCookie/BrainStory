@@ -24,7 +24,10 @@ public class BattleMonsterPrefabFactory : MonoBehaviour
 	public BaseMonsterShower createMonsterShower(int typeIndex){
 		switch (typeIndex) {
 		default:
-			TestMonsterShower testShower = Instantiate(monsterRef[0]) as TestMonsterShower;
+			TestConcreteMonsterShower testShower = Instantiate(monsterRef[0]) as TestConcreteMonsterShower;
+			testShower.name = "TestConcreteMonsterShower";
+			testShower.transform.localPosition = Vector3.zero;
+			testShower.transform.localScale = Vector3.one;
 			return testShower;
 		}
 	}

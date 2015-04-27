@@ -184,6 +184,7 @@
      <Compile Include="Assets\Scripts\BattleCore\BattleMapUtil.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleMonsterActionInterface.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleMonsterBase.cs" />
+     <Compile Include="Assets\Scripts\BattleCore\BattleMonsterFactory.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleReportGenerater.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleSimulateTest.cs" />
      <Compile Include="Assets\Scripts\BattleCore\BattleTeam.cs" />
@@ -192,7 +193,7 @@
      <Compile Include="Assets\Scripts\BattleShower\BattleReplayMgr.cs" />
      <Compile Include="Assets\Scripts\BattleShower\BattleReplayPage.cs" />
      <Compile Include="Assets\Scripts\BattleShower\Monsters\BaseMonsterShower.cs" />
-     <Compile Include="Assets\Scripts\BattleShower\Monsters\TestMonsterShower.cs" />
+     <Compile Include="Assets\Scripts\BattleShower\Monsters\TestConcreteMonsterShower.cs" />
      <Compile Include="Assets\Scripts\BattleShower\Tester\BattleTesterControl.cs" />
      <Compile Include="Assets\Scripts\BattleShower\Tester\BattleTesterUnit.cs" />
      <Compile Include="Assets\Scripts\CommonWindows\CommonDialog.cs" />
