@@ -81,6 +81,4 @@ public class BattleReportGenerater
 		reportArr+="]";
 		return reportArr;
 	}
-
-
 }
