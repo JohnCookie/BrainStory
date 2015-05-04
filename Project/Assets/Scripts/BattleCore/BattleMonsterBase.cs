@@ -18,6 +18,7 @@ public enum MonsterStatus{
 public abstract class BattleMonsterBase : BattleMonsterActionInterface
 {
 	public int battleUnitId;
+	public long userMonsterId;
 	public double monsterRealPosX;
 	public double monsterRealPosY;
 	public int monsterIndexX;
@@ -40,7 +41,7 @@ public abstract class BattleMonsterBase : BattleMonsterActionInterface
 	public double moveSpd;
 	public double atkSpd;
 	public int range;
-	public TeamType team; // 1 right 2 left
+	public TeamType team;
 	public MonsterStatus status = MonsterStatus.Idle;
 	public BattleMonsterBase targetMonster = null;
 	
@@ -48,6 +49,7 @@ public abstract class BattleMonsterBase : BattleMonsterActionInterface
 	
 	public BattleMonsterBase (UserMonster _monster, Vector2 _pos, TeamType _team){
 		battleUnitId = BattleData.getInstance ().getBattleMonsterId ();
+		userMonsterId = _monster.id;
 		// pos info
 		updateIndex ((int)_pos.x, (int)_pos.y);
 		updateTargetIndex ((int)_pos.x, (int)_pos.y);
@@ -203,32 +205,32 @@ public abstract class BattleMonsterBase : BattleMonsterActionInterface
 	//reporter
 	protected void Report_Born(){
 		Debug.Log("[Report] Monster_"+battleUnitId+" born at ("+monsterIndexX+","+monsterIndexY+").");
-		BattleReportGenerater.getInstance ().addEvent (battleUnitId, BattleData.getInstance ().currBattleTime, monsterIndexX, monsterIndexY, ReportActionType.Locate);
+		BattleReportGenerater.getInstance ().addEvent (battleUnitId, Math.Round(BattleData.getInstance ().currBattleTime,2), monsterIndexX, monsterIndexY, ReportActionType.Locate);
 	}
 	protected void Report_Status_Change(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " switch status to " + status);
 		if (status == MonsterStatus.Moving) {
-			BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, monsterTargetIndexX, monsterTargetIndexY, ReportActionType.Move);
+			BattleReportGenerater.getInstance().addEvent(battleUnitId, Math.Round(BattleData.getInstance ().currBattleTime,2), monsterTargetIndexX, monsterTargetIndexY, ReportActionType.Move);
 		}
 	}
 	protected void Report_Fight(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " fight on Monster_" + targetMonster.battleUnitId);
-		BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, 0, 0, ReportActionType.Attack);
+		BattleReportGenerater.getInstance().addEvent(battleUnitId, Math.Round(BattleData.getInstance ().currBattleTime,2), 0, 0, ReportActionType.Attack);
 	}
 	protected void Report_Cast(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " cast magic on Monster_" + targetMonster.battleUnitId);
-		BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, 0, 0, ReportActionType.Cast);
+		BattleReportGenerater.getInstance().addEvent(battleUnitId, Math.Round(BattleData.getInstance ().currBattleTime,2), 0, 0, ReportActionType.Cast);
 	}
 	protected void Report_Hurted(int damage){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " being hurted, " + damage + " damage, current hp: " + hp);
-		BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, damage, 0, ReportActionType.Hurt);
+		BattleReportGenerater.getInstance().addEvent(battleUnitId, Math.Round(BattleData.getInstance ().currBattleTime,2), damage, 0, ReportActionType.Hurt);
 	}
 	protected void Report_Healed(int heal){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " being healed, " + heal + " heal, current hp: " + hp);
-		BattleReportGenerater.getInstance().addEvent(battleUnitId, BattleData.getInstance().currBattleTime, heal, 0, ReportActionType.Heal);
+		BattleReportGenerater.getInstance().addEvent(battleUnitId, Math.Round(BattleData.getInstance ().currBattleTime,2), heal, 0, ReportActionType.Heal);
 	}
 	protected void Report_Die(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " die!");
-		BattleReportGenerater.getInstance ().addEvent (battleUnitId, BattleData.getInstance ().currBattleTime, 0, 0, ReportActionType.Die);
+		BattleReportGenerater.getInstance ().addEvent (battleUnitId, Math.Round(BattleData.getInstance ().currBattleTime,2), 0, 0, ReportActionType.Die);
 	}
 }

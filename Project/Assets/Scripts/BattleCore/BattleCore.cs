@@ -7,6 +7,9 @@ public class BattleCore
 	public void StartBattle(Dictionary<int, UserMonster> playerMosnterTeam, Dictionary<int, UserMonster> enermyMonsterTeam){
 		InitBattleData ();
 		InitMap ();
+
+		BattleReportGenerater.getInstance ().reset ();
+
 		InitPlayerBattleMonster (playerMosnterTeam);
 		InitEnermyBattleMonster (enermyMonsterTeam);
 
@@ -34,6 +37,7 @@ public class BattleCore
 			BattleMonsterBase _monster = new TestConcreteMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.LeftTeam), TeamType.LeftTeam);
 			BattleData.getInstance().playerBattleMonsterTeam.addOneMonster(_monster);
 		}
+		BattleReportGenerater.getInstance ().setLeftTeam (BattleData.getInstance().playerBattleMonsterTeam);
 	}
 
 	void InitEnermyBattleMonster(Dictionary<int, UserMonster> _team){
@@ -43,10 +47,10 @@ public class BattleCore
 			BattleMonsterBase _monster = new TestConcreteMonster(_team[key], BattleMapUtil.getMapIndexOnInit(key, TeamType.RightTeam), TeamType.RightTeam);
 			BattleData.getInstance().enermyBattleMosnterTeam.addOneMonster(_monster);
 		}
+		BattleReportGenerater.getInstance ().setRightTeam (BattleData.getInstance ().enermyBattleMosnterTeam);
 	}
 
 	void BattleStart(){
-		BattleReportGenerater.getInstance ().clearList ();
 		Debug.Log("----- Battle Start -----");
 		// Init monsters on map
 		foreach (BattleMonsterBase m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList) {
@@ -65,10 +69,12 @@ public class BattleCore
 			// check if battle end
 			if(BattleData.getInstance().playerBattleMonsterTeam.getMonsterNum()<=0){
 				Debug.Log("----- Battle End, Enermy(RightSide) Team Win -----");
+				BattleReportGenerater.getInstance().setBattleResult(1);
 				return;
 			}
 			if(BattleData.getInstance().enermyBattleMosnterTeam.getMonsterNum()<=0){
 				Debug.Log("----- Battle End, Player(RightSide) Team Win -----");
+				BattleReportGenerater.getInstance().setBattleResult(0);
 				return;
 			}
 			// update position
@@ -83,7 +89,9 @@ public class BattleCore
 	}
 
 	void PrintBattleReport(){
+		Debug.Log (BattleReportGenerater.getInstance ().getTeamStr ());
 		Debug.Log(BattleReportGenerater.getInstance().getReportStr());
+		Debug.Log (BattleReportGenerater.getInstance ().getWholeJsonStr ());
 	}
 
 	void CalculateAddition(){

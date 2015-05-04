@@ -55,9 +55,14 @@ public class BattleReportGenerater
 	}
 
 	List<BattleReportEvent> reportEventList = new List<BattleReportEvent>();
+	int battleResult = 0; // 0 left win 1 right win
+	List<BattleUnit> leftTeamList = new List<BattleUnit> ();
+	List<BattleUnit> rightTeamList = new List<BattleUnit> ();
 
-	public void clearList(){
+	public void reset(){
 		reportEventList.Clear ();
+		leftTeamList.Clear ();
+		rightTeamList.Clear ();
 	}
 
 	public void addEvent(int id, double t, double v1, double v2, ReportActionType type){
@@ -80,5 +85,42 @@ public class BattleReportGenerater
 		}
 		reportArr+="]";
 		return reportArr;
+	}
+
+	public void setLeftTeam(BattleTeam team){
+		foreach (BattleMonsterBase monster in team.m_monsterList) {
+			BattleUnit unit = new BattleUnit();
+			unit.monster_id = monster.userMonsterId;
+			unit.battle_id = monster.battleUnitId;
+			leftTeamList.Add(unit);
+		}
+	}
+	public void setRightTeam(BattleTeam team){
+		foreach (BattleMonsterBase monster in team.m_monsterList) {
+			BattleUnit unit = new BattleUnit();
+			unit.monster_id = monster.userMonsterId;
+			unit.battle_id = monster.battleUnitId;
+			rightTeamList.Add(unit);
+		}
+	}
+
+	public string getTeamStr(){
+		return "["+JsonMapper.ToJson(leftTeamList)+","+JsonMapper.ToJson(rightTeamList)+"]";
+	}
+
+	public void setBattleResult(int result){
+		battleResult = result;
+	}
+
+	public string getWholeJsonStr ()
+	{
+		string report = "{";
+		report += "\"result\":"+battleResult+",";
+		report += "\"team\":"+getTeamStr()+",";
+		report += "\"reward\":{},";
+		report += "\"report\":"+getReportStr()+",";
+		report += "\"extra\":\"\"";
+		report += "}";
+		return report;
 	}
 }
