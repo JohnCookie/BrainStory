@@ -23,6 +23,9 @@ public class BattleReplayPage : MonoBehaviour
 	void Start(){
 		// init map and views
 
+	}
+
+	void playReport(){
 		// init reports
 		string reportStr = PlayerPrefs.GetString ("battle_report");
 		if (string.IsNullOrEmpty (reportStr)) {
@@ -32,7 +35,7 @@ public class BattleReplayPage : MonoBehaviour
 			return;
 		}
 		BattleReplayMgr replayMgr = new BattleReplayMgr (reportStr);
-
+		
 		// init monsters
 		List<BattleUnit> leftTeam = replayMgr.getLeftTeam ();
 		foreach (BattleUnit bu in leftTeam) {
@@ -46,13 +49,13 @@ public class BattleReplayPage : MonoBehaviour
 			temp.transform.parent = m_battleMap.transform;
 			m_monsterDict.Add(bu.battle_id,  temp);
 		}
-
+		
 		// init report queue
 		List<ReplayReport> sortReplays = repMgr.getReports ();
 		for (int i=0; i<sortReplays.Count; i++) {
 			m_queueReport.Enqueue(sortReplays[i]);
 		}
-
+		
 		replayStart = true;
 	}
 
@@ -109,11 +112,16 @@ public class BattleReplayPage : MonoBehaviour
 			factoryObj.name = "BattleMonsterFactory";
 			factoryObj.transform.localPosition = Vector3.zero;
 			factoryObj.transform.localScale = Vector3.one;
+			factoryObj.transform.parent = transform;
 		});
 	}
 
 	void closeBattlePage(){
 		UISystem.getInstance ().showLastPage ();
+	}
+
+	public void startPlayReport(){
+		playReport ();
 	}
 }
 
