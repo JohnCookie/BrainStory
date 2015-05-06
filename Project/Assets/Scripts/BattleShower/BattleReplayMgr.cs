@@ -11,7 +11,7 @@ public class BattleReplayMgr{
 		m_reportInfo = JsonMapper.ToObject<BattleReplayInfo> (report);
 		m_reportSorted = m_reportInfo.report;
 		m_reportSorted.Sort (delegate(ReplayReport x, ReplayReport y) {
-			return (int)(x.time - y.time);
+			return (int)(y.time - x.time);
 		});
 	}
 

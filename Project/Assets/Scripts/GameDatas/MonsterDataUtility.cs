@@ -99,4 +99,8 @@ public class MonsterDataUntility{
 	public List<MonsterBase> getMonsterInfosByQuality(int quality){
 		return m_dictStarToMonsters[quality];
 	}
+
+	public List<MonsterBase> getAllMonster(){
+		return m_monsterBaseInfoList.data;
+	}
 }
