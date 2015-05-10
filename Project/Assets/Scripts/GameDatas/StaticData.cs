@@ -47,13 +47,13 @@ public class MonsterBase
 	public int hp { get; set; }
 	public int atk_type { get; set; }
 	public int def_type { get; set; }
-	public int atk_add { get; set; }
+	public double atk_add { get; set; }
 	public double def_add { get; set; }
 	public double spd_add { get; set; }
 	public double int_add { get; set; }
 	public double agi_add { get; set; }
 	public double dex_add { get; set; }
-	public int hp_add { get; set; }
+	public double hp_add { get; set; }
 }
 #endregion
 

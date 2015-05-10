@@ -75,6 +75,10 @@ public class MainPageUI : MonoBehaviour
 		battleSimulater.simulateBattle ();
 	}
 
+	public void OnTestFunction3(){
+		UISystem.getInstance ().showPage ("Prefabs/CustomUserMonsterPage");
+	}
+
 	void TestJsonLit(){
 		string jsonTxt=TextUtils.getInstance().ReadTextFromResources("Texts/GameData/test_json");
 		Debug.Log(jsonTxt);

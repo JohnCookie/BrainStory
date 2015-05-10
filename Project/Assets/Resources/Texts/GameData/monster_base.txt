@@ -1,4 +1,5 @@
-﻿[{"id":1,"name":"Bally","icon":1,"quality":1,"atk":7,"def":4,"atk_spd":2.5,"mov_spd":2,"range":1,"intel":1,"agi":1,"dex":1,"hp":60,"atk_type":1,"def_type":1,"atk_add":0.5,"def_add":0.5,"spd_add":0,"int_add":0.1,"agi_add":0.1,"dex_add":0.1,"hp_add":2.5},
+﻿{"data":
+[{"id":1,"name":"Bally","icon":1,"quality":1,"atk":7,"def":4,"atk_spd":2.5,"mov_spd":2,"range":1,"intel":1,"agi":1,"dex":1,"hp":60,"atk_type":1,"def_type":1,"atk_add":0.5,"def_add":0.5,"spd_add":0,"int_add":0.1,"agi_add":0.1,"dex_add":0.1,"hp_add":2.5},
 {"id":2,"name":"Bluecake","icon":2,"quality":1,"atk":8,"def":3,"atk_spd":3,"mov_spd":2,"range":1,"intel":2,"agi":1,"dex":1,"hp":55,"atk_type":2,"def_type":2,"atk_add":0.6,"def_add":0.4,"spd_add":0,"int_add":0.1,"agi_add":0.1,"dex_add":0.1,"hp_add":2},
 {"id":1001,"name":"Test1_1","icon":1,"quality":1,"atk":6,"def":2,"atk_spd":4,"mov_spd":3,"range":1,"intel":1,"agi":2,"dex":1,"hp":50,"atk_type":1,"def_type":1,"atk_add":0.5,"def_add":0.4,"spd_add":0,"int_add":0.1,"agi_add":0.1,"dex_add":0.1,"hp_add":2.5},
 {"id":1002,"name":"Test1_2","icon":1,"quality":1,"atk":6,"def":2,"atk_spd":4,"mov_spd":3,"range":1,"intel":2,"agi":1,"dex":2,"hp":50,"atk_type":1,"def_type":1,"atk_add":0.5,"def_add":0.4,"spd_add":0,"int_add":0.1,"agi_add":0.1,"dex_add":0.1,"hp_add":2},
@@ -25,3 +26,4 @@
 {"id":1023,"name":"Test5_3","icon":1,"quality":5,"atk":6,"def":2,"atk_spd":3.5,"mov_spd":3,"range":3,"intel":1,"agi":2,"dex":2,"hp":50,"atk_type":1,"def_type":1,"atk_add":0.5,"def_add":0.4,"spd_add":0.1,"int_add":0.1,"agi_add":0.1,"dex_add":0.1,"hp_add":2.5},
 {"id":1024,"name":"Test5_4","icon":1,"quality":5,"atk":6,"def":2,"atk_spd":3.5,"mov_spd":3,"range":3,"intel":2,"agi":1,"dex":3,"hp":50,"atk_type":1,"def_type":1,"atk_add":0.5,"def_add":0.4,"spd_add":0.1,"int_add":0.1,"agi_add":0.1,"dex_add":0.1,"hp_add":2},
 {"id":1025,"name":"Test5_5","icon":1,"quality":5,"atk":6,"def":2,"atk_spd":3.5,"mov_spd":3,"range":3,"intel":1,"agi":2,"dex":1,"hp":50,"atk_type":1,"def_type":1,"atk_add":0.5,"def_add":0.4,"spd_add":0.1,"int_add":0.1,"agi_add":0.1,"dex_add":0.1,"hp_add":2.5}]
+}

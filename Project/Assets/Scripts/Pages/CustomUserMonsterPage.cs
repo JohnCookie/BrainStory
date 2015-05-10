@@ -17,7 +17,11 @@ public class CustomUserMonsterPage : MonoBehaviour
 	void Awake()
 	{
 		m_btnLeft = transform.FindChild ("LeftBtn").GetComponent<UIButton> ();
+		m_btnRight = transform.FindChild("RightBtn").GetComponent<UIButton>();
+		m_btnBack = transform.FindChild("BackBtn").GetComponent<UIButton>();
+		m_btnAdd = transform.FindChild("AddBtn").GetComponent<UIButton>();
 
+		m_shower = transform.FindChild("SmallMonsterShower").GetComponent<SmallMonsterShower>();
 	}
 
 	// Use this for initialization
