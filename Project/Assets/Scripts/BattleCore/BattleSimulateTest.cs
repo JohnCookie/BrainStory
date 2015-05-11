@@ -7,7 +7,7 @@ public class BattleSimulateTest
 
 	}
 
-	public void simulateBattle(){
+	public void simulateDefaultBattle(){
 		BattleCore b_core = new BattleCore ();
 		Dictionary<int, UserMonster> leftTeam = new Dictionary<int, UserMonster> ();
 		Dictionary<int, UserMonster> rightTeam = new Dictionary<int, UserMonster> ();
@@ -21,6 +21,11 @@ public class BattleSimulateTest
 		leftTeam.Add (4, monster_1);
 		//leftTeam.Add (6, monster_3);
 		rightTeam.Add (4, monster_2);
+		b_core.StartBattle (leftTeam, rightTeam);
+	}
+
+	public void simulateBattle(Dictionary<int, UserMonster> leftTeam, Dictionary<int, UserMonster> rightTeam){
+		BattleCore b_core = new BattleCore ();
 		b_core.StartBattle (leftTeam, rightTeam);
 	}
 }

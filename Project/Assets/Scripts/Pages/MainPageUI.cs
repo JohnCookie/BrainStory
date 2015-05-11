@@ -72,7 +72,7 @@ public class MainPageUI : MonoBehaviour
 //		BattleReportGenerater.getInstance ().addEvent (1, 4, 0, 0, ReportActionType.Die);
 //		Debug.Log(BattleReportGenerater.getInstance ().getReportStr());
 		BattleSimulateTest battleSimulater = new BattleSimulateTest ();
-		battleSimulater.simulateBattle ();
+		battleSimulater.simulateDefaultBattle ();
 	}
 
 	public void OnTestFunction3(){
