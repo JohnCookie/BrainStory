@@ -66,13 +66,11 @@ public class MainPageUI : MonoBehaviour
 		UserDataGenerater.GetInstance().DelMonsterByUID(id);
 		*/
 		// Simulate Battle
-//		BattleReportGenerater.getInstance ().clearList ();
-//		BattleReportGenerater.getInstance ().addEvent (1, 2, 0, 0, ReportActionType.Locate);
-//		BattleReportGenerater.getInstance ().addEvent (2, 3, 3, 3, ReportActionType.Move);
-//		BattleReportGenerater.getInstance ().addEvent (1, 4, 0, 0, ReportActionType.Die);
-//		Debug.Log(BattleReportGenerater.getInstance ().getReportStr());
+		/*
 		BattleSimulateTest battleSimulater = new BattleSimulateTest ();
 		battleSimulater.simulateDefaultBattle ();
+		*/
+		UISystem.getInstance().showPage("Prefabs/SimulatorBattleArrangePage");
 	}
 
 	public void OnTestFunction3(){

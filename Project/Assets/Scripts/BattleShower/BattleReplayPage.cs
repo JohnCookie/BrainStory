@@ -29,21 +29,21 @@ public class BattleReplayPage : MonoBehaviour
 		// init reports
 		string reportStr = PlayerPrefs.GetString ("battle_report");
 		if (string.IsNullOrEmpty (reportStr)) {
-			UISystem.getInstance().showCommonDialog(CommonDialogStyle.OnlyConfirmStyle, "Error", "Battle report error", null, null, delegate(string msg) {
-				closeBattlePage();
+			UISystem.getInstance().showCommonDialog(CommonDialogStyle.OnlyConfirmStyle, "Error", "Battle report error(empty)", null, null, delegate(string msg) {
+				closeBattlePage(msg);
 			});
 			return;
 		}
-		BattleReplayMgr replayMgr = new BattleReplayMgr (reportStr);
+		repMgr = new BattleReplayMgr (reportStr);
 		
 		// init monsters
-		List<BattleUnit> leftTeam = replayMgr.getLeftTeam ();
+		List<BattleUnit> leftTeam = repMgr.getLeftTeam ();
 		foreach (BattleUnit bu in leftTeam) {
 			BaseMonsterShower temp = BattleMonsterPrefabFactory.getInstance().createMonsterShower(UserDataGenerater.GetInstance().getUserMonsterByUniqueId(bu.monster_id).monster_id);
 			temp.transform.parent = m_battleMap.transform;
 			m_monsterDict.Add(bu.battle_id,  temp);
 		}
-		List<BattleUnit> rightTeam = replayMgr.getRightTeam ();
+		List<BattleUnit> rightTeam = repMgr.getRightTeam ();
 		foreach (BattleUnit bu in rightTeam) {	
 			BaseMonsterShower temp = BattleMonsterPrefabFactory.getInstance().createMonsterShower(UserDataGenerater.GetInstance().getUserMonsterByUniqueId(bu.monster_id).monster_id);
 			temp.transform.parent = m_battleMap.transform;
@@ -72,6 +72,18 @@ public class BattleReplayPage : MonoBehaviour
 			if(m_queueReport.Count<=0){
 				replayStart = false;
 				Debug.Log("Replay show end");
+				int result = repMgr.getResult();
+				switch(result){
+				case 0:
+					UISystem.getInstance().showCommonDialog(CommonDialogStyle.OnlyConfirmStyle, "Battle Result", "You Win!", null, null, closeBattlePage);
+					break;
+				case 1:
+					UISystem.getInstance().showCommonDialog(CommonDialogStyle.OnlyConfirmStyle, "Battle Result", "You Lose!", null, null, closeBattlePage);
+					break;
+				case 2:
+					UISystem.getInstance().showCommonDialog(CommonDialogStyle.OnlyConfirmStyle, "Battle Result", "Battle Error, Please check report in log", null, null, closeBattlePage);
+					break;
+				}
 			}
 		}
 	}
@@ -116,7 +128,7 @@ public class BattleReplayPage : MonoBehaviour
 		});
 	}
 
-	void closeBattlePage(){
+	void closeBattlePage(string msg){
 		UISystem.getInstance ().showLastPage ();
 	}
 

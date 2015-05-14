@@ -55,7 +55,7 @@ public class BattleReportGenerater
 	}
 
 	List<BattleReportEvent> reportEventList = new List<BattleReportEvent>();
-	int battleResult = 0; // 0 left win 1 right win
+	int battleResult = 0; // 0 left win 1 right win 2 error
 	List<BattleUnit> leftTeamList = new List<BattleUnit> ();
 	List<BattleUnit> rightTeamList = new List<BattleUnit> ();
 

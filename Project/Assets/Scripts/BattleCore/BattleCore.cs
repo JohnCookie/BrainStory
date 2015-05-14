@@ -85,6 +85,12 @@ public class BattleCore
 			CalculateBuffAndDebuffs();
 			// calculate effect on map
 			CalculateEffectsOnMap();
+
+			// error happen battle not end
+			if(t>8){
+				Debug.Log("Battle time beyond 8 minutes, check what happened in log please");
+				BattleReportGenerater.getInstance().setBattleResult(2);
+			}
 		}
 	}
 

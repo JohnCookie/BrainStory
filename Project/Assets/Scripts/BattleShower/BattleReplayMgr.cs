@@ -15,12 +15,8 @@ public class BattleReplayMgr{
 		});
 	}
 
-	public bool getResult(){
-		if (m_reportInfo.result == 0) {
-			return false;	
-		} else {
-			return true;
-		}
+	public int getResult(){
+		return m_reportInfo.result;
 	}
 
 	public List<BattleUnit> getLeftTeam(){
