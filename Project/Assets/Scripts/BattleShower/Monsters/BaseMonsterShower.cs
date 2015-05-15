@@ -29,16 +29,24 @@ public abstract class BaseMonsterShower : MonoBehaviour
 		
 	}
 
-	public void Locate(int x, int y){
+	public void InitMonster(int monster_id){
+		if (m_spriteMonster.atlas.GetSprite (monster_id.ToString ()) != null) {
+			m_spriteMonster.spriteName = monster_id.ToString ();
+		} else {
+			m_spriteMonster.spriteName = "0";
+		}
+	}
+
+	public void Locate(double x, double y){
 		transform.localPosition = new Vector3 ((float)(x * GameConfigs.map_grid_width), (float)(-y * GameConfigs.map_grid_width), 0.0f);
 	}
 
 	public abstract void Idle ();
-	public abstract void Move (int x, int y, double spd);
+	public abstract void Move (double x, double y, double spd);
 	public abstract void Attack ();
-	public abstract void Cast (int skillId);
+	public abstract void Cast (double skillId);
 	public abstract void Die ();
-	public abstract void Healed (int damage);
-	public abstract void Hurted (int heal);
+	public abstract void Healed (double damage);
+	public abstract void Hurted (double heal);
 }
 

@@ -235,6 +235,9 @@ public class SimulatorBattleArrangePage : MonoBehaviour
 
 		string battleReport = BattleReportGenerater.getInstance ().getWholeJsonStr ();
 		Debug.Log (battleReport);
+
+		PlayerPrefs.SetString ("battle_report", battleReport);
+		UISystem.getInstance ().showPage ("Prefabs/BattleReplayPage");
 	}
 }
 

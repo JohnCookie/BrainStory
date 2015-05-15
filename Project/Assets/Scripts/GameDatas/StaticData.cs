@@ -80,9 +80,9 @@ public class ReplayReport
 	public int type { get; set; }
 	public int id { get; set; }
 	public double time { get; set; }
-	public int v1 { get; set; }
-	public int v2 { get; set; }
-	public int v3 { get; set; }
+	public double v1 { get; set; }
+	public double v2 { get; set; }
+	public double v3 { get; set; }
 }
 
 public class BattleUnit

@@ -44,7 +44,7 @@ public class TestConcreteMonsterShower : BaseMonsterShower
 		m_animator.Play (idle_hash);
 	}
 
-	public override void Move (int x, int y, double spd)
+	public override void Move (double x, double y, double spd)
 	{
 		m_animator.Play (move_hash);
 		isMoving = true;
@@ -59,7 +59,7 @@ public class TestConcreteMonsterShower : BaseMonsterShower
 		m_animator.Play (attack_hash);
 	}
 
-	public override void Cast (int skillId)
+	public override void Cast (double skillId)
 	{
 		m_animator.Play (cast_hash);
 	}
@@ -69,14 +69,14 @@ public class TestConcreteMonsterShower : BaseMonsterShower
 		m_animator.Play (die_hash);
 	}
 
-	public override void Healed (int heal)
+	public override void Healed (double heal)
 	{
 		m_hub.color = Color.green;
 		m_hub.text = "+"+heal.ToString ();
 		m_animator.Play (hp_hash);
 	}
 
-	public override void Hurted (int damage)
+	public override void Hurted (double damage)
 	{
 		m_hub.color = Color.red;
 		m_hub.text = "-" + damage.ToString ();

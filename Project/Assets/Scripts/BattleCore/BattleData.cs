@@ -54,6 +54,7 @@ public class BattleData {
 		battleMonsterNum = 0;
 		currBattleTime = 0;
 		monsterRelationDict.Clear ();
+		battleMonsterBaseDict.Clear ();
 	}
 
 	public int getBattleMonsterId(){

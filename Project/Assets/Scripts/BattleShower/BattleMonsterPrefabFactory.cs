@@ -29,6 +29,7 @@ public class BattleMonsterPrefabFactory : MonoBehaviour
 			testShower.transform.localPosition = Vector3.zero;
 			testShower.transform.localScale = Vector3.one;
 			TestConcreteMonsterShower testConcreteMonsterShower = testShower.GetComponent<TestConcreteMonsterShower>();
+			testConcreteMonsterShower.InitMonster(typeIndex);
 			return testConcreteMonsterShower;
 		}
 	}

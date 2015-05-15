@@ -13,16 +13,21 @@ public class BattleReplayPage : MonoBehaviour
 	bool replayStart = false;
 	Dictionary<int, BaseMonsterShower> m_monsterDict = new Dictionary<int, BaseMonsterShower>();
 	GameObject factoryObj;
-	Queue<ReplayReport> m_queueReport;
+	Queue<ReplayReport> m_queueReport = new Queue<ReplayReport> ();
 	GameObject m_battleMap;
 
 	void Awake(){
+		m_progressLeft = transform.FindChild ("TeamInfoPart").FindChild ("LeftTeam").FindChild ("HpProgressBar").GetComponent<UIProgressBar> ();
+		m_progressRight = transform.FindChild ("TeamInfoPart").FindChild ("RightTeam").FindChild ("HpProgressBar").GetComponent<UIProgressBar> ();
+		m_battleMap = transform.FindChild ("BattleMapPart").FindChild ("MapNode").gameObject;
 		InitFactory ();
 	}
 
 	void Start(){
 		// init map and views
 
+		// start play battle
+		TimerHelper.getInstance ().DelayFunc (3, startPlayReport);
 	}
 
 	void playReport(){
@@ -41,12 +46,14 @@ public class BattleReplayPage : MonoBehaviour
 		foreach (BattleUnit bu in leftTeam) {
 			BaseMonsterShower temp = BattleMonsterPrefabFactory.getInstance().createMonsterShower(UserDataGenerater.GetInstance().getUserMonsterByUniqueId(bu.monster_id).monster_id);
 			temp.transform.parent = m_battleMap.transform;
+			temp.transform.localScale = Vector3.one;
 			m_monsterDict.Add(bu.battle_id,  temp);
 		}
 		List<BattleUnit> rightTeam = repMgr.getRightTeam ();
 		foreach (BattleUnit bu in rightTeam) {	
 			BaseMonsterShower temp = BattleMonsterPrefabFactory.getInstance().createMonsterShower(UserDataGenerater.GetInstance().getUserMonsterByUniqueId(bu.monster_id).monster_id);
 			temp.transform.parent = m_battleMap.transform;
+			temp.transform.localScale = Vector3.one;
 			m_monsterDict.Add(bu.battle_id,  temp);
 		}
 		
@@ -65,8 +72,12 @@ public class BattleReplayPage : MonoBehaviour
 
 	void Update(){
 		if (replayStart) {
-			while(m_queueReport.Peek().time<=currTime){
-				handleReplay(m_queueReport.Dequeue());
+			ReplayReport tempReport;
+			tempReport = m_queueReport.Peek();
+			while(tempReport.time<=currTime){
+				tempReport = m_queueReport.Dequeue();
+				handleReplay(tempReport);
+				tempReport = m_queueReport.Peek();
 			}
 			currTime+=Time.deltaTime;
 			if(m_queueReport.Count<=0){

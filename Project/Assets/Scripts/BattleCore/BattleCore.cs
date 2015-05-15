@@ -70,12 +70,12 @@ public class BattleCore
 			if(BattleData.getInstance().playerBattleMonsterTeam.getMonsterNum()<=0){
 				Debug.Log("----- Battle End, Enermy(RightSide) Team Win -----");
 				BattleReportGenerater.getInstance().setBattleResult(1);
-				return;
+				break;
 			}
 			if(BattleData.getInstance().enermyBattleMosnterTeam.getMonsterNum()<=0){
 				Debug.Log("----- Battle End, Player(RightSide) Team Win -----");
 				BattleReportGenerater.getInstance().setBattleResult(0);
-				return;
+				break;
 			}
 			// update position
 			CalculateMonsterPositions();
@@ -87,7 +87,7 @@ public class BattleCore
 			CalculateEffectsOnMap();
 
 			// error happen battle not end
-			if(t>8){
+			if(t>200){
 				Debug.Log("Battle time beyond 8 minutes, check what happened in log please");
 				BattleReportGenerater.getInstance().setBattleResult(2);
 			}
