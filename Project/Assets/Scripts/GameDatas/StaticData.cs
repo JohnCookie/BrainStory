@@ -79,7 +79,7 @@ public class ReplayReport
 {
 	public int type { get; set; }
 	public int id { get; set; }
-	public double time { get; set; }
+	public double t { get; set; }
 	public double v1 { get; set; }
 	public double v2 { get; set; }
 	public double v3 { get; set; }

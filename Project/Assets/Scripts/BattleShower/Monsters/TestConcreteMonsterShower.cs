@@ -51,6 +51,7 @@ public class TestConcreteMonsterShower : BaseMonsterShower
 		originPosition = transform.localPosition;
 		targetPosition = new Vector3 ((float)(x * GameConfigs.map_grid_width), (float)(-y * GameConfigs.map_grid_width), transform.localPosition.z);
 		movSpd = spd;
+		Debug.Log(originPosition+"-"+targetPosition+"-"+movSpd);
 		movingTime = 0;
 	}
 

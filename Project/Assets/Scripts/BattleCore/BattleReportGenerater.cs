@@ -21,13 +21,15 @@ public class BattleReportEvent{
 	double time;
 	double value1;
 	double value2;
+	double value3;
 	ReportActionType actionType;
 
-	public BattleReportEvent(int id, double t, double v1, double v2, ReportActionType type){
+	public BattleReportEvent(int id, double t, double v1, double v2, double v3, ReportActionType type){
 		monsterid = id;
 		time = t;
 		value1 = v1;
 		value2 = v2;
+		value3 = v3;
 		actionType = type;
 	}
 
@@ -38,6 +40,7 @@ public class BattleReportEvent{
 		json ["t"] = time;
 		json ["v1"] = value1;
 		json ["v2"] = value2;
+		json ["v3"] = value3;
 		return json;
 	}
 }
@@ -65,8 +68,8 @@ public class BattleReportGenerater
 		rightTeamList.Clear ();
 	}
 
-	public void addEvent(int id, double t, double v1, double v2, ReportActionType type){
-		reportEventList.Add (new BattleReportEvent (id, t, v1, v2, type));
+	public void addEvent(int id, double t, double v1, double v2, double v3, ReportActionType type){
+		reportEventList.Add (new BattleReportEvent (id, t, v1, v2, v3, type));
 	}
 
 	public string getReportStr(){

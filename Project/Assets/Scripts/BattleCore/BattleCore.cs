@@ -55,9 +55,11 @@ public class BattleCore
 		// Init monsters on map
 		foreach (BattleMonsterBase m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList) {
 			BattleData.getInstance().battleMapData[m.monsterIndexX, m.monsterIndexY] = (int)MapTileType.Monster;
+			m.Born();
 		}
 		foreach (BattleMonsterBase m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList) {
-			BattleData.getInstance().battleMapData[m.monsterIndexX, m.monsterIndexY] = (int)MapTileType.Monster;	
+			BattleData.getInstance().battleMapData[m.monsterIndexX, m.monsterIndexY] = (int)MapTileType.Monster;
+			m.Born();
 		}
 
 		// Calculate init addition
@@ -87,7 +89,7 @@ public class BattleCore
 			CalculateEffectsOnMap();
 
 			// error happen battle not end
-			if(t>200){
+			if(t>60*5){
 				Debug.Log("Battle time beyond 8 minutes, check what happened in log please");
 				BattleReportGenerater.getInstance().setBattleResult(2);
 			}

@@ -8,11 +8,13 @@ public class BattleReplayMgr{
 	List<ReplayReport> m_reportSorted;
 
 	public BattleReplayMgr(string report){
+		Debug.Log("create replay mgr: "+report);
 		m_reportInfo = JsonMapper.ToObject<BattleReplayInfo> (report);
 		m_reportSorted = m_reportInfo.report;
 		m_reportSorted.Sort (delegate(ReplayReport x, ReplayReport y) {
-			return (int)(y.time - x.time);
+			return (int)(x.t - y.t);
 		});
+
 	}
 
 	public int getResult(){

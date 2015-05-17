@@ -72,12 +72,13 @@ public class BattleReplayPage : MonoBehaviour
 
 	void Update(){
 		if (replayStart) {
-			ReplayReport tempReport;
-			tempReport = m_queueReport.Peek();
-			while(tempReport.time<=currTime){
-				tempReport = m_queueReport.Dequeue();
-				handleReplay(tempReport);
-				tempReport = m_queueReport.Peek();
+			Debug.Log("left event num: "+m_queueReport.Count);
+			Debug.Log("next time: "+m_queueReport.Peek().t + " currtime: "+currTime);
+			while(m_queueReport.Peek().t<=currTime){
+				handleReplay(m_queueReport.Dequeue());
+				if(m_queueReport.Count<=0){
+					break;
+				}
 			}
 			currTime+=Time.deltaTime;
 			if(m_queueReport.Count<=0){
