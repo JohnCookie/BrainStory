@@ -12,7 +12,7 @@ public class GameConfigs
 	public static int map_max_y_index = 9;
 	public static double map_grid_width = 40.0;
 	// battle setting
-	public static double battle_tick_step = 0.1;
+	public static double battle_tick_step = 0.025;
 
 	// monster intelligence for cast percent
 	public static double intel_per_cast = 0.06;

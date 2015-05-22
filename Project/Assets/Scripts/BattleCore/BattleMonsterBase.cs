@@ -210,6 +210,7 @@ public abstract class BattleMonsterBase : BattleMonsterActionInterface
 	protected void Report_Status_Change(){
 		Debug.Log ("[Report] Monster_" + battleUnitId + " switch status to " + status);
 		if (status == MonsterStatus.Moving) {
+			Debug.Log ("[Report] Monster_" + battleUnitId + " move to (" + monsterTargetIndexX + "," + monsterTargetIndexY + ")");
 			BattleReportGenerater.getInstance().addEvent(battleUnitId, Math.Round(BattleData.getInstance ().currBattleTime,2), monsterTargetIndexX, monsterTargetIndexY, moveSpd, ReportActionType.Move);
 		}
 	}

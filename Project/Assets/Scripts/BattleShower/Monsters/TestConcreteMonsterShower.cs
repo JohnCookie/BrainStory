@@ -32,7 +32,7 @@ public class TestConcreteMonsterShower : BaseMonsterShower
 					transform.localPosition = Vector3.Lerp (originPosition, targetPosition, (float)(movingTime / (GameConfigs.map_grid_width / movSpd)));
 					movingTime += Time.deltaTime;
 			}
-			if(movingTime > 1.1){
+			if(movingTime > 4){
 				isMoving = false;
 			}
 		}
@@ -51,7 +51,7 @@ public class TestConcreteMonsterShower : BaseMonsterShower
 		originPosition = transform.localPosition;
 		targetPosition = new Vector3 ((float)(x * GameConfigs.map_grid_width), (float)(-y * GameConfigs.map_grid_width), transform.localPosition.z);
 		movSpd = spd;
-		Debug.Log(originPosition+"-"+targetPosition+"-"+movSpd);
+		Debug.Log("Move: "+x+","+y+" position:"+originPosition+"-"+targetPosition+"-"+movSpd);
 		movingTime = 0;
 	}
 

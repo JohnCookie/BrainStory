@@ -38,6 +38,7 @@ public abstract class BaseMonsterShower : MonoBehaviour
 	}
 
 	public void Locate(double x, double y){
+		Debug.Log ("Monster Born at (" + x + "," + y + ")");
 		transform.localPosition = new Vector3 ((float)(x * GameConfigs.map_grid_width), (float)(-y * GameConfigs.map_grid_width), 0.0f);
 	}
 

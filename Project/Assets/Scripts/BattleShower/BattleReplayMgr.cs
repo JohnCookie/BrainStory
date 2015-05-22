@@ -12,7 +12,17 @@ public class BattleReplayMgr{
 		m_reportInfo = JsonMapper.ToObject<BattleReplayInfo> (report);
 		m_reportSorted = m_reportInfo.report;
 		m_reportSorted.Sort (delegate(ReplayReport x, ReplayReport y) {
-			return (int)(x.t - y.t);
+			if(x.t<y.t){
+				return -1;
+			}else if(x.t>y.t){
+				return 1;
+			}else{
+				if(x.type<y.type){
+					return -1;
+				}else{
+					return 1;
+				}
+			}
 		});
 
 	}

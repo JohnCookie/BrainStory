@@ -72,8 +72,6 @@ public class BattleReplayPage : MonoBehaviour
 
 	void Update(){
 		if (replayStart) {
-			Debug.Log("left event num: "+m_queueReport.Count);
-			Debug.Log("next time: "+m_queueReport.Peek().t + " currtime: "+currTime);
 			while(m_queueReport.Peek().t<=currTime){
 				handleReplay(m_queueReport.Dequeue());
 				if(m_queueReport.Count<=0){

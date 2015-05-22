@@ -45,8 +45,8 @@ public class TestConcreteMonster : BattleMonsterBase
 			// same position
 			setStatus(MonsterStatus.Prepared);
 		} else {
-			setStatus(MonsterStatus.Moving);
 			updateTargetIndex ((int)searchResult.x, (int)searchResult.y);
+			setStatus(MonsterStatus.Moving);
 			if(this.monsterTargetIndexX - this.monsterIndexX > 0){
 				this.movingX = moveSpd;
 			}else if(this.monsterTargetIndexX - this.monsterIndexX < 0){

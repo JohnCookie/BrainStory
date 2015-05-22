@@ -58,7 +58,7 @@ public class BattleMapUtil
 		Vector2 targetPosition = getTarPosition (_m, targetMonster);
 		if (_m.monsterIndexX != targetPosition.x || _m.monsterIndexY != targetPosition.y) {
 			_m.targetMonster = targetMonster;
-			Debug.Log("Monster_"+_m.battleUnitId+" aimed on Monster_"+targetMonster.battleUnitId);	
+			Debug.Log("Monster_"+_m.battleUnitId+" aimed on Monster_"+targetMonster.battleUnitId);
 		}
 		return targetPosition;
 	}
