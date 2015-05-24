@@ -22,7 +22,7 @@ public class BattleTeam{
 	}
 
 	public void removeOneMonster(BattleMonsterBase _monster){
-		m_monsterList.Remove (_monster);
+		bool removed = m_monsterList.Remove (_monster);
 		BattleData.getInstance ().battleMonsterBaseDict.Remove (_monster.battleUnitId);
 	} 
 

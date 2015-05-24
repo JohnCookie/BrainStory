@@ -66,7 +66,7 @@ public class BattleCore
 		CalculateAddition ();
 
 		// Time Tick
-		for (double t=0;; t+=GameConfigs.battle_tick_step) {
+		for (double t=0; ; t+=GameConfigs.battle_tick_step) {
 			BattleData.getInstance().currBattleTime = t;
 			// check if battle end
 			if(BattleData.getInstance().playerBattleMonsterTeam.getMonsterNum()<=0){
@@ -92,6 +92,7 @@ public class BattleCore
 			if(t>60*5){
 				Debug.Log("Battle time beyond 8 minutes, check what happened in log please");
 				BattleReportGenerater.getInstance().setBattleResult(2);
+				break;
 			}
 		}
 	}
@@ -122,11 +123,11 @@ public class BattleCore
 	}
 
 	void MonsterActions(){
-		foreach(BattleMonsterBase m in BattleData.getInstance().playerBattleMonsterTeam.m_monsterList){
-			m.updateSelfAction();
+		for(int i=0; i<BattleData.getInstance().playerBattleMonsterTeam.m_monsterList.Count; i++){
+			BattleData.getInstance().playerBattleMonsterTeam.m_monsterList[i].updateSelfAction();
 		}
-		foreach(BattleMonsterBase m in BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList){
-			m.updateSelfAction();
+		for(int j=0; j<BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList.Count; j++){
+			BattleData.getInstance().enermyBattleMosnterTeam.m_monsterList[j].updateSelfAction();
 		}
 	}
 

@@ -125,7 +125,7 @@ public abstract class BattleMonsterBase : BattleMonsterActionInterface
 	}
 	
 	protected bool checkTargetInRange(){
-		if (targetMonster != null && BattleMapUtil.getDistanceBetween2BaseMonster (this, targetMonster) <= this.range) {
+		if (targetMonster != null && BattleMapUtil.getDistanceBetween2BaseMonster (this, targetMonster) <= this.range && targetMonster.hp>0) {
 			return true;
 		} else {
 			return false;

@@ -43,7 +43,9 @@ public class TestConcreteMonster : BattleMonsterBase
 		Vector2 searchResult = BattleMapUtil.getNextStepPosition (this);
 		if (this.monsterIndexX == (int)searchResult.x && this.monsterIndexY == (int)searchResult.y) {
 			// same position
-			setStatus(MonsterStatus.Prepared);
+			if(status!=MonsterStatus.Prepared){
+				setStatus(MonsterStatus.Prepared);
+			}
 		} else {
 			updateTargetIndex ((int)searchResult.x, (int)searchResult.y);
 			setStatus(MonsterStatus.Moving);
@@ -139,18 +141,19 @@ public class TestConcreteMonster : BattleMonsterBase
 	{
 		beforeDie ();
 		if (team == TeamType.LeftTeam) {
-			BattleData.getInstance().enermyBattleMosnterTeam.removeOneMonster(targetMonster);
-			Debug.Log("Right Team has "+BattleData.getInstance().enermyBattleMosnterTeam.getMonsterNum()+" monster(s) left.");
+			BattleData.getInstance().playerBattleMonsterTeam.removeOneMonster(this);
+			Debug.Log("Right Team has "+BattleData.getInstance().playerBattleMonsterTeam.getMonsterNum()+" monster(s) left.");
 		}
 		if (team == TeamType.RightTeam) {
-			BattleData.getInstance().playerBattleMonsterTeam.removeOneMonster(targetMonster);
-			Debug.Log("Left Team has "+BattleData.getInstance().playerBattleMonsterTeam.getMonsterNum()+" monster(s) left.");
+			BattleData.getInstance().enermyBattleMosnterTeam.removeOneMonster(this);
+			Debug.Log("Left Team has "+BattleData.getInstance().enermyBattleMosnterTeam.getMonsterNum()+" monster(s) left.");
 		}
 		BattleData.getInstance ().battleMapData [monsterIndexX, monsterIndexY] = (int)MapTileType.None;
 		BattleData.getInstance ().battleMapData [monsterTargetIndexX, monsterTargetIndexY] = (int)MapTileType.None;
 
 		Report_Die ();
 		afterDie ();
+
 	}
 	protected override void beforeDie ()
 	{

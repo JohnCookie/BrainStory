@@ -27,7 +27,7 @@ public class BattleReplayPage : MonoBehaviour
 		// init map and views
 
 		// start play battle
-		TimerHelper.getInstance ().DelayFunc (3, startPlayReport);
+		TimerHelper.getInstance ().DelayFunc (2, startPlayReport);
 	}
 
 	void playReport(){
