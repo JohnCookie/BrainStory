@@ -11,7 +11,8 @@ Items
 	游戏中列表中用到的Item
 Pages
 	游戏页面UI
-
+GameClasses
+	游戏中用到的一些类封装
 
 主要通用工具方法
 UISystem
@@ -41,7 +42,7 @@ TimerHelp
 	DelayFunc(float, callback) 延迟执行方法
 
 	*还需添加
-	时间戳转换
+	时间戳转换(已添加了简单的时间戳转换DateTime<->String)
 
 TextUtils
 	单例，用于读取外部数据
@@ -107,3 +108,7 @@ UserDataGenerater
 
 	*还需添加
 	生成怪物时技能天赋的初始化等
+
+CDEvent
+	用于倒计时的一个控件，使用开始，持续时间初始化，同时拥有一个回调
+	通过调用updateTime(deltaTime)驱动

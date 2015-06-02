@@ -53,9 +53,9 @@ public class SmallMonsterShower : MonoBehaviour
 	}
 
   	void monsterClickCallback(){
-			if(_callback!=null){
-				_callback();
-			}
+		if(_callback!=null){
+			_callback();
+		}
 	}
 }
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public delegate void DelayCallback();
 
@@ -30,5 +31,19 @@ public class TimerHelper : MonoBehaviour
 		yield return new WaitForSeconds(delayTime);  
 		callback ();
 	} 
+
+	public DateTime GetTime(string timeStamp)
+	{
+		DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
+		long lTime = long.Parse(timeStamp + "0000000");
+		TimeSpan toNow = new TimeSpan(lTime); 
+		return dtStart.Add(toNow);
+	}
+
+	public int ConvertDateTimeInt(System.DateTime time)
+	{
+		System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+		return (int)(time - startTime).TotalSeconds;
+	}
 }
 
