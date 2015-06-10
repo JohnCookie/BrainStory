@@ -100,3 +100,60 @@ public class BattleReplayInfo
 	public string extra { get; set; }
 }
 #endregion
+
+#region NormalTask
+public class NormalTaskList{
+	public List<NormalTaskData> data { get; set; }
+}
+
+public class NormalTaskData
+{
+	public int id { get; set; }
+	public string task_name { get; set; }
+	public int task_type { get; set; }
+	public int task_duration { get; set; }
+	public List<TaskOpponentData> task_opp { get; set; }
+	public List<TaskRewardData> task_reward { get; set; }
+	public int task_exp { get; set; }
+	public int task_gold { get; set; }
+	public int task_max_num { get; set; }
+}
+
+public class TaskOpponentData
+{
+	public int monsterId { get; set; }
+	public int pos { get; set; }
+	public List<int> talents { get; set; }
+	public List<int> skills { get; set; }
+	public int lv { get; set; }
+}
+
+public class TaskRewardData
+{
+	public int itemId { get; set; }
+	public int rate { get; set; }
+}
+#endregion
+
+#region SpecTask
+public class SpecTaskList{
+	public List<SpecTaskData> data { get; set; }
+}
+
+public class SpecTaskData
+{
+	public int id { get; set; }
+	public string task_name { get; set; }
+	public int task_type { get; set; }
+	public int task_duration { get; set; }
+	public List<TaskOpponentData> task_opp { get; set; }
+	public List<TaskRewardData> task_reward { get; set; }
+	public int task_exp { get; set; }
+	public int task_gold { get; set; }
+	public int task_max_num { get; set; }
+	public List<int> task_day { get; set; }
+	public List<int> task_time { get; set; }
+	public List<int> task_require { get; set; }
+	public int task_rate { get; set; }
+}
+#endregion

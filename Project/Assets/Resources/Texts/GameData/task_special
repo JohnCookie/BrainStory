@@ -1,0 +1,64 @@
+[
+    {
+        "id": 5001,
+        "task_name": "Spec.Task.1",
+        "task_type": 1,
+        "task_duration": 10,
+        "task_opp": [
+            {
+                "monsterId": 1,
+                "pos": 0,
+                "talents": [],
+                "skills": [],
+                "lv": 5
+            },
+            {
+                "monsterId": 2,
+                "pos": 4,
+                "talents": [],
+                "skills": [],
+                "lv": 5
+            },
+            {
+                "monsterId": 3,
+                "pos": 8,
+                "talents": [],
+                "skills": [],
+                "lv": 5
+            }
+        ],
+        "task_reward": [
+            {
+                "itemId": 0,
+                "rate": 6
+            },
+            {
+                "itemId": 1,
+                "rate": 2
+            },
+            {
+                "itemId": 2,
+                "rate": 2
+            }
+        ],
+        "task_exp": 10,
+        "task_gold": 100,
+        "task_max_num": 3,
+        "task_day": [
+            0,
+            6
+        ],
+        "task_time": [
+            0,
+            0,
+            24,
+            0
+        ],
+        "task_require": [
+            1,
+            2,
+            3
+        ],
+        "task_rate": 100
+    }
+]
