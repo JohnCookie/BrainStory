@@ -214,7 +214,9 @@
      <Compile Include="Assets\Scripts\Items\MonsterSummonCDItem.cs" />
      <Compile Include="Assets\Scripts\Items\SummonSlotSelectBoxItem.cs" />
      <Compile Include="Assets\Scripts\Items\UserMonsterBoxItem.cs" />
+     <Compile Include="Assets\Scripts\NavmeshTest\MapTile.cs" />
      <Compile Include="Assets\Scripts\NavmeshTest\NavmeshTestObj.cs" />
+     <Compile Include="Assets\Scripts\NavmeshTest\PathFinding2DTest.cs" />
      <Compile Include="Assets\Scripts\NavmeshTest\PathFindingTest.cs" />
      <Compile Include="Assets\Scripts\Pages\CustomUserMonsterPage.cs" />
      <Compile Include="Assets\Scripts\Pages\GachaSummonPage.cs" />
@@ -295,14 +297,14 @@
  <Reference Include="Pathfinding.ClipperLib">
  <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Clipper/Pathfinding.ClipperLib.dll</HintPath>
  </Reference>
- <Reference Include="Pathfinding.Poly2Tri">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+ <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+ <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.JsonFx">
  <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
- <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <Reference Include="Pathfinding.Poly2Tri">
+ <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

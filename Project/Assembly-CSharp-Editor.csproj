@@ -224,20 +224,20 @@
  <Reference Include="DOTweenEditor">
  <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity465/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
  <Reference Include="Pathfinding.ClipperLib">
  <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Clipper/Pathfinding.ClipperLib.dll</HintPath>
  </Reference>
- <Reference Include="Pathfinding.Poly2Tri">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+ <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+ <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.JsonFx">
  <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
- <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <Reference Include="Pathfinding.Poly2Tri">
+ <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity465/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
