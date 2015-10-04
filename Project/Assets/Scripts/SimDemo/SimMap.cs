@@ -6,10 +6,10 @@ public class SimMap : MonoBehaviour
 {
 	public const int tileWidth = 32;
 	public const int tileHeight = 32;
-	public const int mapWidthNum = 50;
-	public const int mapHeightNum = 50;
+	public const int mapWidthNum = 30;
+	public const int mapHeightNum = 30;
 
-	public int[,] currSimMapArray = new int[50,50];
+	public int[,] currSimMapArray = new int[30,30];
 	bool mapInitialed = false;
 
 	public GameObject m_objTileMap;
