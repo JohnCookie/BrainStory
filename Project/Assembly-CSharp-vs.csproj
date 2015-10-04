@@ -226,6 +226,9 @@
      <Compile Include="Assets\Scripts\Pages\SummonResultPage.cs" />
      <Compile Include="Assets\Scripts\Pages\TestPageUI.cs" />
      <Compile Include="Assets\Scripts\Pages\UserMonsterBoxPage.cs" />
+     <Compile Include="Assets\Scripts\SimDemo\MapTileObj.cs" />
+     <Compile Include="Assets\Scripts\SimDemo\SimMap.cs" />
+     <Compile Include="Assets\Scripts\SimDemo\TileMapManager.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.9.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
@@ -233,6 +236,7 @@
      <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
      <None Include="Assets\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
+     <None Include="Assets\Resources\Texts\GameData\map_text.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
