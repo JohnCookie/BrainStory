@@ -22,6 +22,7 @@ public class SimMap : MonoBehaviour
 		} else {
 
 		}
+		TimerHelper.getInstance().DelayFunc(1, regenerateGrid);
 	}
 
 	void LoadMapText(){
@@ -64,6 +65,11 @@ public class SimMap : MonoBehaviour
 		m_objTileMap.SetActive (false);
 
 		mapInitialed = true;
+	}
+
+	public void regenerateGrid(){
+		AstarPath.active.Scan ();
+		Debug.Log("rescan");
 	}
 }
 
