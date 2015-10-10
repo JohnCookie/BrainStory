@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class SimMap : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class SimMap : MonoBehaviour
 
 	public GameObject m_objTileMap;
 	public UIGrid m_mapGrid;
+	public GameObject m_objNpc;
+	public GameObject m_nodeNpcs;
+
+	public static List<AutoWalkingObj> m_alies = new List<AutoWalkingObj> ();
 
 	void Awake(){
 		LoadMapText ();
@@ -70,6 +75,20 @@ public class SimMap : MonoBehaviour
 	public void regenerateGrid(){
 		AstarPath.active.Scan ();
 		Debug.Log("rescan");
+
+		GenerateNPC ();
+	}
+
+	public void GenerateNPC(){
+		GameObject npc = Instantiate (m_objNpc) as GameObject;
+		npc.transform.parent = m_nodeNpcs.transform;
+		npc.transform.localPosition = new Vector3(-16,-16,0);
+		npc.transform.localScale = Vector3.one;
+		npc.name = "npc";
+		AutoWalkingObj npcScript = npc.GetComponent<AutoWalkingObj> ();
+		m_alies.Add (npcScript);
+
+		m_objNpc.SetActive (false);
 	}
 }
 
