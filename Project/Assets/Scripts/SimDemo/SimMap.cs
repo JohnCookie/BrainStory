@@ -10,7 +10,9 @@ public class SimMap : MonoBehaviour
 	public const int mapWidthNum = 30;
 	public const int mapHeightNum = 30;
 
-	public int[,] currSimMapArray = new int[30,30];
+	public int[,] currSimMapArray = new int[30, 30];
+	public int[,] currSimMapInfoArray = new int[30, 30];
+	Dictionary<int, List<string>> mapInfoDict = new Dictionary<int, List<string>>();
 	bool mapInitialed = false;
 
 	public GameObject m_objTileMap;
@@ -22,6 +24,7 @@ public class SimMap : MonoBehaviour
 
 	void Awake(){
 		LoadMapText ();
+		LoadMapInfo ();
 		if (!mapInitialed) {
 			GenerateMapView ();
 		} else {
@@ -47,7 +50,38 @@ public class SimMap : MonoBehaviour
 		for(int x=0; x<mapWidthNum; x++){
 			for(int y=0; y<mapHeightNum; y++){
 				currSimMapArray[x, y] = int.Parse(mapChar[x*mapWidthNum+y].ToString());
-				Debug.Log(currSimMapArray[x, y]);
+			}
+		}
+	}
+
+	void LoadMapInfo(){
+		string mapRes = TextUtils.getInstance().ReadTextFromResources("Texts/GameData/map_info");
+		mapRes = mapRes.Replace("\n", string.Empty).Replace("\r", string.Empty).Replace("\t", string.Empty).Replace(" ", string.Empty);
+		if (mapRes.Length > mapWidthNum * mapHeightNum) {
+			mapRes.Substring (0, mapWidthNum * mapHeightNum);		
+		} else if (mapRes.Length < mapWidthNum * mapHeightNum) {
+			for (int i=mapRes.Length; i<= mapWidthNum * mapHeightNum; i++) {
+				mapRes += "0";
+			}
+		} else {
+			Debug.Log("map file fine");
+		}
+		char[] mapChar = mapRes.ToCharArray ();
+		mapInfoDict.Clear ();
+
+		for(int x=0; x<mapWidthNum; x++){
+			for(int y=0; y<mapHeightNum; y++){
+				currSimMapInfoArray[x, y] = int.Parse(mapChar[x*mapWidthNum+y].ToString());
+				if(currSimMapInfoArray[x, y]>0){
+					if(mapInfoDict.ContainsKey(currSimMapInfoArray[x, y])){
+						List<string> currStr = mapInfoDict[currSimMapInfoArray[x, y]];
+						currStr.Add(x+"_"+y);
+					}else{
+						List<string> str = new List<string>();
+						str.Add(x+"_"+y);
+						mapInfoDict.Add(currSimMapInfoArray[x, y], str);
+					}
+				}
 			}
 		}
 	}
@@ -77,18 +111,44 @@ public class SimMap : MonoBehaviour
 		Debug.Log("rescan");
 
 		GenerateNPC ();
+		m_objNpc.SetActive (false);
 	}
 
 	public void GenerateNPC(){
+		List<Vector3> npcPosAndTar = getRandomStartAndEndPoint ();
+
 		GameObject npc = Instantiate (m_objNpc) as GameObject;
 		npc.transform.parent = m_nodeNpcs.transform;
-		npc.transform.localPosition = new Vector3(-16,-16,0);
+		npc.transform.localPosition = npcPosAndTar[0];
 		npc.transform.localScale = Vector3.one;
 		npc.name = "npc";
 		AutoWalkingObj npcScript = npc.GetComponent<AutoWalkingObj> ();
 		m_alies.Add (npcScript);
+		npcScript.setEndPoint (npcPosAndTar [1]);
+	}
 
-		m_objNpc.SetActive (false);
+	public List<Vector3> getRandomStartAndEndPoint(){
+		int startIndex = UnityEngine.Random.Range (0, mapInfoDict [5].Count);
+		string startPointStr = mapInfoDict [5] [startIndex];
+		int endIndex = UnityEngine.Random.Range (0, mapInfoDict [5].Count);
+		while(endIndex==startIndex){
+			endIndex = UnityEngine.Random.Range (0, mapInfoDict [5].Count);
+		}
+		string endPointStr = mapInfoDict [5] [endIndex];
+		List<Vector3> result = new List<Vector3> ();
+		result.Add (strToVector (startPointStr));
+		result.Add (strToVector (endPointStr));
+		Debug.Log (result [0] + "-->" + result [1]);
+		return result;
+	}
+
+	Vector3 strToVector(string pos){
+		string[] pos_arr = pos.Split('_');
+		int x = int.Parse (pos_arr [0]);
+		int y = int.Parse (pos_arr [1]);
+		return new Vector3 (-mapWidthNum / 2 * tileWidth + tileWidth / 2 + x * tileWidth, 
+		                    mapHeightNum / 2 * tileHeight - tileHeight / 2 - y * tileHeight, 
+		                    0);
 	}
 }
 

@@ -15,10 +15,10 @@ public class AutoWalkingObj : MonoBehaviour {
 	
 	public float nextWayPointDistance = 0.00001f;
 	private int currWayPoint = 0;
-	public float speed = 5;
+	public float speed = 8;
 	
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		seeker = GetComponent<Seeker> ();
 		
 		//seeker.StartPath (transform.position, target.position, OnPathCompleted);
@@ -42,7 +42,7 @@ public class AutoWalkingObj : MonoBehaviour {
 		//Check if we are close enough to the next waypoint
 		//If we are, proceed to follow the next waypoint
 		if (Vector3.Distance (transform.position,path.vectorPath[currWayPoint]) < nextWayPointDistance) {
-			Debug.Log(Vector3.Distance (transform.position,path.vectorPath[currWayPoint]));
+			//Debug.Log(Vector3.Distance (transform.position,path.vectorPath[currWayPoint]));
 			currWayPoint++;
 			return;
 		}
@@ -59,6 +59,14 @@ public class AutoWalkingObj : MonoBehaviour {
 	public void tryMoveTo (Vector3 targetPostion)
 	{
 		target = targetPostion;
+		seeker.StartPath (transform.position, target, OnPathCompleted);
+	}
+
+	public void setEndPoint(Vector3 targetPostion){
+		target = targetPostion * root.transform.localScale.x;
+		if (seeker == null) {
+			seeker = GetComponent<Seeker> ();
+		}
 		seeker.StartPath (transform.position, target, OnPathCompleted);
 	}
 }

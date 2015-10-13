@@ -30,6 +30,7 @@ public class MapTileObj : MonoBehaviour
 		Debug.Log("tile clicked");
 		if (SimMap.m_alies.Count > 0) {
 			SimMap.m_alies [0].tryMoveTo (transform.position);
+			Debug.Log("aaaa->"+transform.position);
 		}
 	}
 }
