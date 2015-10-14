@@ -14,6 +14,7 @@ public class SimMap : MonoBehaviour
 	public int[,] currSimMapInfoArray = new int[30, 30];
 	Dictionary<int, List<string>> mapInfoDict = new Dictionary<int, List<string>>();
 	bool mapInitialed = false;
+	public bool gridAstarFinished = false;
 
 	public GameObject m_objTileMap;
 	public UIGrid m_mapGrid;
@@ -110,8 +111,9 @@ public class SimMap : MonoBehaviour
 		AstarPath.active.Scan ();
 		Debug.Log("rescan");
 
-		GenerateNPC ();
+		//GenerateNPC ();
 		m_objNpc.SetActive (false);
+		gridAstarFinished = true;
 	}
 
 	public void GenerateNPC(){
@@ -122,6 +124,7 @@ public class SimMap : MonoBehaviour
 		npc.transform.localPosition = npcPosAndTar[0];
 		npc.transform.localScale = Vector3.one;
 		npc.name = "npc";
+		npc.SetActive (true);
 		AutoWalkingObj npcScript = npc.GetComponent<AutoWalkingObj> ();
 		m_alies.Add (npcScript);
 		npcScript.setEndPoint (npcPosAndTar [1]);
@@ -146,8 +149,8 @@ public class SimMap : MonoBehaviour
 		string[] pos_arr = pos.Split('_');
 		int x = int.Parse (pos_arr [0]);
 		int y = int.Parse (pos_arr [1]);
-		return new Vector3 (-mapWidthNum / 2 * tileWidth + tileWidth / 2 + x * tileWidth, 
-		                    mapHeightNum / 2 * tileHeight - tileHeight / 2 - y * tileHeight, 
+		return new Vector3 ((-mapWidthNum / 2 - 1) * tileWidth + tileWidth / 2 + x * tileWidth, 
+		                    (mapHeightNum / 2 - 1) * tileHeight - tileHeight / 2 - y * tileHeight, 
 		                    0);
 	}
 }

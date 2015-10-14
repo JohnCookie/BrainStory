@@ -33,6 +33,8 @@ public class AutoWalkingObj : MonoBehaviour {
 		if (currWayPoint >= path.vectorPath.Count) {
 			Debug.Log("End path Reached");
 			path = null;
+			PlayMakerFSM fsm = GetComponent<PlayMakerFSM>();
+			fsm.SendEvent("arrived");
 			return;
 		}
 		
@@ -52,7 +54,7 @@ public class AutoWalkingObj : MonoBehaviour {
 		Debug.Log("Yay, we got a path back. Did it have an error? "+p.error);
 		if (!p.error) {
 			path = p;
-			currWayPoint = 0;	
+			currWayPoint = 0;
 		}
 	}
 
