@@ -852,6 +852,8 @@
      <Compile Include="Assets\Scripts\SimDemo\AutoWalkingObj.cs" />
      <Compile Include="Assets\Scripts\SimDemo\MapTileObj.cs" />
      <Compile Include="Assets\Scripts\SimDemo\SimMap.cs" />
+     <Compile Include="Assets\Scripts\SimDemo\TaskDataUtility.cs" />
+     <Compile Include="Assets\Scripts\SimDemo\TaskSystemMgr.cs" />
      <Compile Include="Assets\Scripts\SimDemo\TileMapManager.cs" />
      <Compile Include="Assets\iTween\iTween.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />

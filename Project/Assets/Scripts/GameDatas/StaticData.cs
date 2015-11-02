@@ -157,3 +157,44 @@ public class SpecTaskData
 	public int task_rate { get; set; }
 }
 #endregion
+
+#region TaskData
+public class AllTaskData{
+	public List<TaskData> data { get; set; }
+}
+
+public class TaskData
+{
+	public int id { get; set; }
+	public string task_name { get; set; }
+	public int duration { get; set; } // minute
+	public string task_content { get; set; }
+	public List<TaskRewardData> task_reward { get; set; }
+	public int task_rarity { get; set; }
+}
+#endregion
+
+#region UserData Task
+public class UserTaskInfo
+{
+	public int id { get; set; }
+	public List<long> usedMonster { get; set; }
+	public long startTime { get; set; }
+}
+
+public class UserTasksList
+{
+	public List<UserTaskInfo> data { get; set; }
+}
+
+public class UserTaskBaseInfo
+{
+	public int id { get; set; }
+	public long startTime { get; set; }
+}
+
+public class UserTaskBaseList
+{
+	public List<UserTaskBaseInfo> data { get; set; }
+}
+#endregion
