@@ -32,6 +32,8 @@ public class SimMap : MonoBehaviour
 
 		}
 		TimerHelper.getInstance().DelayFunc(1, regenerateGrid);
+
+		TimerHelper.getInstance ().DelayFunc (2, showTaskPage);
 	}
 
 	void LoadMapText(){
@@ -152,6 +154,12 @@ public class SimMap : MonoBehaviour
 		return new Vector3 ((-mapWidthNum / 2 - 1) * tileWidth + tileWidth / 2 + x * tileWidth, 
 		                    (mapHeightNum / 2 - 1) * tileHeight - tileHeight / 2 - y * tileHeight, 
 		                    0);
+	}
+
+
+	//***********************test************************
+	void showTaskPage(){
+		UISystem.getInstance ().showPage ("Prefabs/SimDemo/TaskPageUI");
 	}
 }
 

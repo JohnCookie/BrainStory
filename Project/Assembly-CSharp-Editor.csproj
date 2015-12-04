@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_5;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_9;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity465/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity4.6.9/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity465/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity4.6.9/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -260,76 +260,76 @@
      <None Include="Assets\Plugins\AstarPathfindingProject\link.xml" />
      <None Include="Assets\Photon Unity Networking\changelog.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity465/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.5/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity4.6.9/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.9/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Applications/Unity465/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.5/Editor/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Applications/Unity4.6.9/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.9/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/DOTween/DOTween.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Photon Unity Networking/Plugins/PhotonNetwork/library/Photon3Unity3D.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/Photon Unity Networking/Plugins/PhotonNetwork/library/Photon3Unity3D.dll</HintPath>
  </Reference>
  <Reference Include="PlayMaker">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/PlayMaker.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/PlayMaker.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditorResources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.de.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/de/PlayMakerEditor.de.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/de/PlayMakerEditor.de.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.es-ES.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/es-ES/PlayMakerEditor.es-ES.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/es-ES/PlayMakerEditor.es-ES.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.fr.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/fr/PlayMakerEditor.fr.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/fr/PlayMakerEditor.fr.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.it.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/it/PlayMakerEditor.it.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/it/PlayMakerEditor.it.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.ja.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/ja/PlayMakerEditor.ja.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/ja/PlayMakerEditor.ja.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.nl.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/nl/PlayMakerEditor.nl.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/nl/PlayMakerEditor.nl.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.pt-BR.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/pt-BR/PlayMakerEditor.pt-BR.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/pt-BR/PlayMakerEditor.pt-BR.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.sv-SE.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/sv-SE/PlayMakerEditor.sv-SE.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/sv-SE/PlayMakerEditor.sv-SE.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.zh-CN.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/zh-CN/PlayMakerEditor.zh-CN.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/zh-CN/PlayMakerEditor.zh-CN.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.zh-TW.resources">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/PlayMaker/Editor/zh-TW/PlayMakerEditor.zh-TW.resources.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/PlayMaker/Editor/zh-TW/PlayMakerEditor.zh-TW.resources.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.ClipperLib">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Clipper/Pathfinding.ClipperLib.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Clipper/Pathfinding.ClipperLib.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.JsonFx">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.Poly2Tri">
- <HintPath>/Users/binjie.zhuang/MyFiles/privateGit/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+ <HintPath>/Users/kan.lu/Documents/MyFiles/gitproject/BrainStory/Project/Assets/Plugins/AstarPathfindingProject/Plugins/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity465/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
+ <HintPath>/Applications/Unity4.6.9/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
