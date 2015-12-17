@@ -47,5 +47,17 @@ public class TaskDataUtility
 			}
 		}
 	}
+
+	public TaskData getTaskBaseDataById(int id){
+		return m_taskDict [id];
+	}
+
+	public List<TaskData> getTaskListByRarity(int rarity){
+		return m_taskRarityDict[rarity];
+	}
+
+	public List<TaskData> getAllTaskList(){
+		return m_taskBaseInfoList.data;
+	}
 }
 

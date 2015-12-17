@@ -38,12 +38,52 @@ public class TaskSystemMgr : MonoBehaviour
 	List<UserTaskInfo> m_listUserTasks = new List<UserTaskInfo> ();
 	List<UserTaskBaseInfo> m_listUserAllTasks = new List<UserTaskBaseInfo> ();
 
+	// tasks player is doing
 	public List<UserTaskInfo> getUserProcessingTaskList(){
 		return m_listUserTasks;
 	}
 
+	// tasks in player list
 	public List<UserTaskBaseInfo> getUserAllTaskList(){
 		return m_listUserAllTasks;
+	}
+
+	// get num for one rarity in player list
+	public int getPlayerTaskNumByRarity(int rarity){
+		int num = 0;
+		for (int i=0; i<m_listUserAllTasks.Count; i++) {
+			if(rarity == TaskDataUtility.getInstance().getTaskBaseDataById(m_listUserAllTasks[i].id).task_rarity){
+				num++;
+			}
+		}
+		return num;
+	}
+
+	// get task num now
+	int getPlayerTaskNum(){
+		return m_listUserAllTasks.Count;
+	}
+
+	// check task already in list
+	bool checkTaskInList(int id){
+		bool result = false;
+		for(int i=0; i<m_listUserAllTasks.Count; i++){
+			if(m_listUserAllTasks[i].id == id){
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+
+	// random a task not in list
+	TaskData randomATask(){
+		List<TaskData> taskList = TaskDataUtility.getInstance ().getAllTaskList ();
+		int taskId = UnityEngine.Random.Range (1, taskList.Count);
+		while(checkTaskInList(taskId)){
+			taskId = UnityEngine.Random.Range (1, taskList.Count);
+		}
+		return TaskDataUtility.getInstance().getTaskBaseDataById(taskId);
 	}
 }
 
