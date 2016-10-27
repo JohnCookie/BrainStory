@@ -1,7 +1,0 @@
-5.4.1f1:2.3.0.0
-StandaloneWindows
-E:/Dev/Unity5.4.1/Editor/Data/Managed/UnityEngine.dll
-E:/Dev/Unity5.4.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
-E:/Dev/Unity5.4.1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
-E:/Dev/Unity5.4.1/Editor/Data/Managed/UnityEditor.dll
-E:/Dev/Unity5.4.1/Editor/Data\Managed/Mono.Cecil.dll
