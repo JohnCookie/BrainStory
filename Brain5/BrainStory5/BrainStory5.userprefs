@@ -1,0 +1,21 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\System\LogManager.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Views\Interface\BaseView.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\ResourceManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Framework\JCSingleton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Framework\JCMonoSingleton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\LogManager.cs" Line="31" Column="5" />
+      <File FileName="Assets\Scripts\Test\LitJsonTest.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\AudioManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\ViewManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Views\Interface\IEvent.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\EventManager.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
