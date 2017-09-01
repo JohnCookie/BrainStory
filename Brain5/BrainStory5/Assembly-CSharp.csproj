@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Framework\JCMonoSingleton.cs" />
      <Compile Include="Assets\Scripts\Framework\JCSingleton.cs" />
+     <Compile Include="Assets\Scripts\GameData\CardBaseData.cs" />
      <Compile Include="Assets\Scripts\System\AudioManager.cs" />
      <Compile Include="Assets\Scripts\System\EventManager.cs" />
      <Compile Include="Assets\Scripts\System\LogManager.cs" />
@@ -55,6 +56,7 @@
      <Compile Include="Assets\Scripts\Test\LitJsonTest.cs" />
      <Compile Include="Assets\Scripts\Views\Interface\BaseView.cs" />
      <Compile Include="Assets\Scripts\Views\Interface\IEvent.cs" />
+     <Compile Include="Assets\ThirdParty\SQLite4Unity3d\SQLite.cs" />
      <None Include="Assets\Resources\Fonts\Fixedsys_bmfont.fnt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Dev/Unity5.4.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

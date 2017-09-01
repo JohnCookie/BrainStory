@@ -7,11 +7,13 @@ namespace JCFramework{
 		Dictionary<string, GameObject> m_dictPrefab;
 		Dictionary<string, Texture> m_dictTexture;
 		Dictionary<string, AudioClip> m_dictAudio;
+		Dictionary<string, TextAsset> m_dictTextAsset;
 
 		private ResourceManager(){
 			m_dictPrefab = new Dictionary<string, GameObject>();
 			m_dictTexture = new Dictionary<string, Texture> ();
 			m_dictAudio = new Dictionary<string, AudioClip> ();
+			m_dictTextAsset = new Dictionary<string, TextAsset> ();
 		}
 
 		/*
@@ -72,6 +74,24 @@ namespace JCFramework{
 				} else {
 					m_dictAudio [path] = clip;
 					return clip;
+				}
+			}
+		}
+
+		/*
+		 * Get TextAsset by path
+		 * */
+		public TextAsset getTextAsset(string path){
+			if (m_dictTextAsset.ContainsKey (path)) {
+				return m_dictTextAsset [path];
+			} else {
+				TextAsset text = Resources.Load<TextAsset> (path);
+				if (text == null) {
+					LogManager.getInstance ().Log ("TextAsset: " + path + " not found.", LogLevel.Warning);
+					return new TextAsset ();
+				} else {
+					m_dictTextAsset [path] = text;
+					return text;
 				}
 			}
 		}
