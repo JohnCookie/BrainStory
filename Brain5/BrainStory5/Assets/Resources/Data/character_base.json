@@ -1,0 +1,49 @@
+[ {
+  "character_id" : 1,
+  "character_name" : "Energy",
+  "character_story" : "None",
+  "character_job" : 1,
+  "character_skill" : [ 1 ],
+  "init_sta" : 7,
+  "init_agi" : 3,
+  "init_int" : 3,
+  "init_spr" : 2,
+  "init_vit" : 8,
+  "int_luc" : 3
+}, {
+  "character_id" : 2,
+  "character_name" : "Attack",
+  "character_story" : "None",
+  "character_job" : 2,
+  "character_skill" : [ 2 ],
+  "init_sta" : 4,
+  "init_agi" : 9,
+  "init_int" : 6,
+  "init_spr" : 5,
+  "init_vit" : 3,
+  "int_luc" : 7
+}, {
+  "character_id" : 3,
+  "character_name" : "Defence",
+  "character_story" : "None",
+  "character_job" : 3,
+  "character_skill" : [ 3 ],
+  "init_sta" : 2,
+  "init_agi" : 2,
+  "init_int" : 9,
+  "init_spr" : 6,
+  "init_vit" : 4,
+  "int_luc" : 4
+}, {
+  "character_id" : 4,
+  "character_name" : "Mana",
+  "character_story" : "None",
+  "character_job" : 4,
+  "character_skill" : [ 4 ],
+  "init_sta" : 5,
+  "init_agi" : 3,
+  "init_int" : 6,
+  "init_spr" : 9,
+  "init_vit" : 5,
+  "int_luc" : 3
+} ]

@@ -1,9 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{335CA7B5-DC24-99E5-FAE9-34054D85D377}") = "BrainStory5", "Assembly-CSharp.csproj", "{BB2B26B0-F873-C88F-CE8C-BCF7BC761B20}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainStory5", "Assembly-CSharp.csproj", "{BB2B26B0-F873-C88F-CE8C-BCF7BC761B20}"
 EndProject
-Project("{335CA7B5-DC24-99E5-FAE9-34054D85D377}") = "BrainStory5", "Assembly-CSharp-Editor.csproj", "{6E26EA66-4C4F-B714-7AC3-7AE4FF2E9868}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainStory5", "Assembly-CSharp-Editor.csproj", "{6E26EA66-4C4F-B714-7AC3-7AE4FF2E9868}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

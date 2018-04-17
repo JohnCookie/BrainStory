@@ -3,27 +3,35 @@
   "card_cost" : 1,
   "card_name" : "Energy",
   "card_desc" : "Add 1 on max mana number",
-  "card_type" : 1,
-  "card_skill" : [ 1 ]
+  "card_job" : 1,
+  "card_skill" : [ 1 ],
+  "cast_time" : 0,
+  "card_story" : "None"
 }, {
   "card_id" : 2,
   "card_cost" : 1,
   "card_name" : "Attack",
-  "card_desc" : "Make 1 P.damage",
-  "card_type" : 1,
-  "card_skill" : [ 2 ]
+  "card_desc" : "Make 2 P.damage",
+  "card_job" : 1,
+  "card_skill" : [ 2 ],
+  "cast_time" : 0,
+  "card_story" : "None"
 }, {
   "card_id" : 3,
   "card_cost" : 2,
   "card_name" : "Defence",
   "card_desc" : "Add 1 armor for 5 second",
-  "card_type" : 1,
-  "card_skill" : [ 3 ]
+  "card_job" : 1,
+  "card_skill" : [ 3 ],
+  "cast_time" : 0,
+  "card_story" : "None"
 }, {
   "card_id" : 4,
   "card_cost" : 1,
   "card_name" : "Mana",
   "card_desc" : "Add 1 mana",
-  "card_type" : 1,
-  "card_skill" : [ 4 ]
+  "card_job" : 1,
+  "card_skill" : [ 4 ],
+  "cast_time" : 0,
+  "card_story" : "None"
 } ]
