@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using JCFramework;
 using LitJson;
 
-// 卡牌基础数据
+// 预设角色基础数据
 public class CharacterBaseData {
 	public int character_id { get; set; }
 	public string character_name { get; set; }
@@ -16,14 +16,14 @@ public class CharacterBaseData {
 	public int init_int { get; set; }
 	public int init_spr { get; set; }
 	public int init_vit { get; set; }
-	public int init_luc { get; set; }
+	public int int_luc { get; set; }
 }
 
 public class CharacterBaseDataCollection{
 	public List<CharacterBaseData> data { get; set; }
 }
 
-// 卡牌数据管理类
+// 预设角色s数据管理类
 public class CharacterBaseInfoHelper:JCSingleton<CharacterBaseInfoHelper>{
 	Dictionary<int, CharacterBaseData> characterBaseDataDict;
 
@@ -40,6 +40,7 @@ public class CharacterBaseInfoHelper:JCSingleton<CharacterBaseInfoHelper>{
 		}
 	}
 
+	// 根据id获取
 	public CharacterBaseData getCharacterBaseInfo(int id){
 		if (characterBaseDataDict.ContainsKey (id)) {
 			return characterBaseDataDict [id];
@@ -47,5 +48,12 @@ public class CharacterBaseInfoHelper:JCSingleton<CharacterBaseInfoHelper>{
 			LogManager.getInstance().Log("Can not found character_id:" + id + " in character_base", LogLevel.Error);
 			return null;
 		}
+	}
+
+	// 随机获得一个
+	public CharacterBaseData getRandomBaseInfo(){
+		List<CharacterBaseData> list = new List<CharacterBaseData> (characterBaseDataDict.Values);
+		int index = Random.Range (0, list.Count);
+		return list [index];
 	}
 }

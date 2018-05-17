@@ -56,18 +56,25 @@
      <Compile Include="Assets\Scripts\Game\GameBoot.cs" />
      <Compile Include="Assets\Scripts\Game\GameConst.cs" />
      <Compile Include="Assets\Scripts\Game\GameEnum.cs" />
-     <Compile Include="Assets\Scripts\GameData\CardBaseData.cs" />
-     <Compile Include="Assets\Scripts\GameData\CharacterBaseData.cs" />
+     <Compile Include="Assets\Scripts\GameData\BaseData\CardBaseData.cs" />
+     <Compile Include="Assets\Scripts\GameData\BaseData\CharacterBaseData.cs" />
+     <Compile Include="Assets\Scripts\GameData\BaseData\RandomCharacterBaseData.cs" />
+     <Compile Include="Assets\Scripts\GameData\PO\CharacterPO.cs" />
      <Compile Include="Assets\Scripts\System\AudioManager.cs" />
      <Compile Include="Assets\Scripts\System\EventManager.cs" />
      <Compile Include="Assets\Scripts\System\LogManager.cs" />
      <Compile Include="Assets\Scripts\System\ResourceManager.cs" />
      <Compile Include="Assets\Scripts\System\ViewManager.cs" />
      <Compile Include="Assets\Scripts\Test\LitJsonTest.cs" />
+     <Compile Include="Assets\Scripts\Test\RandomCharacterTest.cs" />
+     <Compile Include="Assets\Scripts\Utils\CharacterGenerator.cs" />
      <Compile Include="Assets\Scripts\Views\Interface\BaseView.cs" />
      <Compile Include="Assets\Scripts\Views\Interface\IEvent.cs" />
      <Compile Include="Assets\ThirdParty\SQLite4Unity3d\SQLite.cs" />
      <None Include="Assets\Resources\Fonts\Fixedsys_bmfont.fnt" />
+     <None Include="Assets\Resources\Data\femalename.txt" />
+     <None Include="Assets\Resources\Data\malename.txt" />
+     <None Include="Assets\Resources\Data\lastname.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Dev/Unity2017/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
