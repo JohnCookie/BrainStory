@@ -22,9 +22,12 @@ public class RandomCharacterTest : MonoBehaviour
 		if (randomResult < 30) {
 			// 30% 生成特定人物
 			po = CharacterGenerator.getInstance().createOneSpecialCharacter();
+			po.update (true);
 		}else{
 			// 70% 生成随机人物
 			po = CharacterGenerator.getInstance().createOneRandomCharacter();
+			Debug.LogError ("before update: " + po.GetType());
+			po.update (true);
 		}
 		m_textPlayerName.text = po.name;
 		m_textPlayerSta.text = po.attrSTA.ToString();

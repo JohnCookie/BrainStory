@@ -14,6 +14,7 @@ public class CardBaseData {
 	public List<int> card_skill { get; set; }
 	public float cast_time { get; set; }
 	public string card_story { get; set; }
+	public string card_img { get; set; }
 }
 
 public class CardBaseDataCollection{

@@ -1,5 +1,5 @@
 [ {
-  "character_id" : 1,
+  "character_id" : 1001,
   "character_name" : "詹姆兰米尔寇",
   "character_story" : "防御？不存在的！冲钅！",
   "character_job" : 1,
@@ -11,7 +11,7 @@
   "init_vit" : 5,
   "int_luc" : 3
 }, {
-  "character_id" : 2,
+  "character_id" : 1002,
   "character_name" : "戴斯库奇",
   "character_story" : "闪避斗篷都在我为什么要躲技能",
   "character_job" : 2,
@@ -23,7 +23,7 @@
   "init_vit" : 3,
   "int_luc" : 7
 }, {
-  "character_id" : 3,
+  "character_id" : 1003,
   "character_name" : "嘟",
   "character_story" : "你知道炎爆的四种挫法吗",
   "character_job" : 3,
@@ -35,7 +35,7 @@
   "init_vit" : 3,
   "int_luc" : 6
 }, {
-  "character_id" : 4,
+  "character_id" : 1004,
   "character_name" : "锦菜",
   "character_story" : "小小怪物可笑可笑",
   "character_job" : 4,
@@ -47,7 +47,7 @@
   "init_vit" : 7,
   "int_luc" : 4
 }, {
-  "character_id" : 5,
+  "character_id" : 1005,
   "character_name" : "列透布尔",
   "character_story" : "我倒了一定是奶的锅",
   "character_job" : 1,
@@ -59,7 +59,7 @@
   "init_vit" : 9,
   "int_luc" : 9
 }, {
-  "character_id" : 6,
+  "character_id" : 1006,
   "character_name" : "崔西条棍",
   "character_story" : "我也不知道怎么打反正就过了",
   "character_job" : 2,
@@ -71,7 +71,7 @@
   "init_vit" : 5,
   "int_luc" : 8
 }, {
-  "character_id" : 7,
+  "character_id" : 1007,
   "character_name" : "线团",
   "character_story" : "动一步算我输",
   "character_job" : 3,
@@ -83,7 +83,7 @@
   "init_vit" : 6,
   "int_luc" : 5
 }, {
-  "character_id" : 8,
+  "character_id" : 1008,
   "character_name" : "诺寇欧",
   "character_story" : "奶只要一个套盾就够了",
   "character_job" : 4,

@@ -15,7 +15,7 @@ namespace JCFramework{
 	}
 
 	public class ViewManager : JCMonoSingleton<ViewManager> {
-		string prefixPath = "Prefab/View/";
+		string prefixPath = "Prefab/Views/";
 		string mainViewName = "MainView";
 		private Dictionary<string, ViewInfo> m_viewDict;
 		private List<ViewInfo> m_viewList;
@@ -25,11 +25,16 @@ namespace JCFramework{
 		private ViewManager(){
 			m_viewDict = new Dictionary<string, ViewInfo> ();
 			m_viewList = new List<ViewInfo> ();
+		}
+
+		protected override void Awake ()
+		{
+			base.Awake ();
 			viewRoot = GameObject.Find ("ViewRoot");
 		}
 
 		public void ShowView(string name){
-			if (currView.name.Equals(name)) {
+			if (currView!=null && currView.name.Equals(name)) {
 				LogManager.getInstance ().Log ("View is already showed");
 				return;
 			}
@@ -49,7 +54,7 @@ namespace JCFramework{
 				GameObject view = Instantiate (ResourceManager.getInstance ().getPrefab (prefixPath + name)) as GameObject;
 				ViewInfo info = new ViewInfo (name, view, m_viewList.Count);
 				view.name = name;
-				view.transform.parent = viewRoot.transform;
+				view.transform.SetParent(viewRoot.transform);
 				view.transform.localScale = Vector3.one;
 				view.transform.localPosition = Vector3.zero;
 
@@ -74,6 +79,14 @@ namespace JCFramework{
 			Destroy (currView.obj);
 			currView = m_viewList [m_viewList.Count - 1];
 			currView.obj.SetActive (true);
+		}
+
+		public GameObject getView(string name){
+			if (m_viewDict.ContainsKey (name)) {
+				return m_viewDict [name].obj;
+			} else {
+				return null;
+			}
 		}
 	}
 }

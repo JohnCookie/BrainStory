@@ -31,6 +31,10 @@ namespace JCFramework{
 
 		}
 
+		protected virtual void Awake(){
+		
+		}
+
 		protected virtual void OnDestroy(){
 			instance = null;
 		}

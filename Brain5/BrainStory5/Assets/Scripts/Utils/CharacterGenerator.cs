@@ -55,9 +55,9 @@ namespace JCGame{
 		}
 
 		public CharacterPO createOneSpecialCharacter(){
-			CharacterPO charPO = new CharacterPO ();
+			CharacterPO charPO = JsonDB.getInstance ().create<CharacterPO> ();
 			CharacterBaseData randomBaseData = CharacterBaseInfoHelper.getInstance ().getRandomBaseInfo ();
-			charPO.id = 0;
+//			charPO.id = 0;
 			charPO.img = "character"+Random.Range (1, 19);
 			charPO.exp = 0;
 			charPO.name = randomBaseData.character_name;
@@ -73,9 +73,9 @@ namespace JCGame{
 			return charPO;
 		}
 		public CharacterPO createOneRandomCharacter(){
-			CharacterPO charPO = new CharacterPO ();
+			CharacterPO charPO = JsonDB.getInstance ().create<CharacterPO> ();
 			RandomCharacterBaseData randomBaseData = RandomCharacterBaseInfoHelper.getInstance ().getRandomBaseInfo ();
-			charPO.id = 0;
+//			charPO.id = 0;
 			charPO.img = "character"+Random.Range (1, 19);
 			charPO.exp = 0;
 			charPO.name = getRandomName ();

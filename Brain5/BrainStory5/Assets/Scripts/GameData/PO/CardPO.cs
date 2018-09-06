@@ -3,20 +3,10 @@ using System.Collections;
 using JCFramework;
 
 [System.Serializable]
-public class CharacterPO:BasePO
+public class CardPO:BasePO
 {
 	public int dataId;
-	public string img;
-	public string name;
-	public int exp;
-	public int job;
-	public int attrSTA;
-	public int attrAGI;
-	public int attrINT;
-	public int attrSPR;
-	public int attrVIT;
-	public int attrLUC;
-	public int[] cards;
+	public int owner; // 属于哪个角色
 
 	public override void init ()
 	{

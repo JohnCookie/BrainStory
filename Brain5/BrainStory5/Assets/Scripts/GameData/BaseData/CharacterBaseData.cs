@@ -17,6 +17,7 @@ public class CharacterBaseData {
 	public int init_spr { get; set; }
 	public int init_vit { get; set; }
 	public int int_luc { get; set; }
+	public List<int> cards { get; set; }
 }
 
 public class CharacterBaseDataCollection{

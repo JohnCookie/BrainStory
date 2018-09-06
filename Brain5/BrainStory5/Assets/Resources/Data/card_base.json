@@ -6,7 +6,8 @@
   "card_job" : 1,
   "card_skill" : [ 1 ],
   "cast_time" : 0,
-  "card_story" : "None"
+  "card_story" : "None",
+  "card_img" : 1
 }, {
   "card_id" : 2,
   "card_cost" : 1,
@@ -15,7 +16,8 @@
   "card_job" : 1,
   "card_skill" : [ 2 ],
   "cast_time" : 0,
-  "card_story" : "None"
+  "card_story" : "None",
+  "card_img" : 2
 }, {
   "card_id" : 3,
   "card_cost" : 2,
@@ -24,7 +26,8 @@
   "card_job" : 1,
   "card_skill" : [ 3 ],
   "cast_time" : 0,
-  "card_story" : "None"
+  "card_story" : "None",
+  "card_img" : 3
 }, {
   "card_id" : 4,
   "card_cost" : 1,
@@ -33,5 +36,6 @@
   "card_job" : 1,
   "card_skill" : [ 4 ],
   "cast_time" : 0,
-  "card_story" : "None"
+  "card_story" : "None",
+  "card_img" : 4
 } ]

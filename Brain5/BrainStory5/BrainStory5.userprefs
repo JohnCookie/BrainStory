@@ -1,28 +1,39 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Utils\CharacterGenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Views\CardCollectionUI\CardCollectionUI.cs">
     <Files>
-      <File FileName="Assets\Scripts\System\ResourceManager.cs" Line="68" Column="26" />
-      <File FileName="Assets\Scripts\Test\LitJsonTest.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Game\GameBoot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Views\CharacterStatsUI\CharacterStatsUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Test\RandomCharacterTest.cs" Line="24" Column="54" />
+      <File FileName="Assets\Scripts\GameData\PO\JsonDB.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Game\GameConst.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\System\AudioManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Game\GameEnum.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameData\PO\BasePO.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\FileManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game\GameBoot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameData\PO\CharacterPO.cs" Line="6" Column="18" />
+      <File FileName="Assets\Scripts\System\ViewManager.cs" Line="86" Column="33" />
       <File FileName="Assets\Scripts\System\LogManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Framework\JCSingleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Utils\CharacterGenerator.cs" Line="71" Column="43" />
-      <File FileName="Assets\Scripts\System\ViewManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameData\BaseData\CharacterBaseData.cs" Line="20" Column="38" />
       <File FileName="Assets\Scripts\Framework\JCMonoSingleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Test\RandomCharacterTest.cs" Line="24" Column="51" />
-      <File FileName="Assets\Scripts\GameData\BaseData\CardBaseData.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameData\BaseData\CharacterBaseData.cs" Line="19" Column="15" />
-      <File FileName="Assets\Scripts\GameData\BaseData\RandomCharacterBaseData.cs" Line="56" Column="2" />
-      <File FileName="Assets\Scripts\GameData\PO\CharacterPO.cs" Line="11" Column="2" />
+      <File FileName="Assets\Scripts\System\ResourceManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Views\CharacterCollectionUI\CharacterCollectionUI.cs" Line="18" Column="23" />
+      <File FileName="Assets\Scripts\Views\CharacterCollectionUI\CharacterHeadItem.cs" Line="12" Column="1" />
+      <File FileName="Assets\Scripts\GameData\BaseData\RandomCharacterBaseData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameData\BaseData\CardBaseData.cs" Line="46" Column="16" />
+      <File FileName="Assets\Scripts\GameData\Controller\CharacterController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Views\Common\BottomBar.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Framework\JCSingleton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Utils\CharacterGenerator.cs" Line="59" Column="17" />
+      <File FileName="Assets\Scripts\GameData\PO\CardPO.cs" Line="6" Column="1" />
+      <File FileName="Assets\Scripts\Views\CardCollectionUI\CardCollectionUI.cs" Line="32" Column="6" />
+      <File FileName="Assets\Scripts\Views\CardCollectionUI\CardCollectionItem.cs" Line="33" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="E:\Dev\PrivateGameProjects\BrainStory\Brain5\BrainStory5\Assets\Editor\Utils\CustomFontMaker.cs" line="13" column="1" />
+      <Breakpoint file="E:\Dev\PrivateGameProjects\BrainStory\Brain5\BrainStory5\Assets\Scripts\GameData\PO\JsonDB.cs" line="125" column="13" />
+      <Breakpoint file="E:\Dev\PrivateGameProjects\BrainStory\Brain5\BrainStory5\Assets\Scripts\GameData\PO\JsonDB.cs" line="394" column="1" />
+      <Breakpoint file="E:\Dev\PrivateGameProjects\BrainStory\Brain5\BrainStory5\Assets\Scripts\GameData\PO\JsonDB.cs" line="295" column="17" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
